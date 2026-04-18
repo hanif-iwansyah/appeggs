@@ -16,10 +16,10 @@ public class KelompokAyam {
     private Long id;
     @ManyToOne//(fetch = FetchType.LAZY)
     @JoinColumn(name = "kandang_id", nullable = false)
-    private int kandangId;
+    private Kandang kandang;
     @ManyToOne//(fetch = FetchType.LAZY)
     @JoinColumn(name = "ras_id", nullable = false)
-    private int rasId;
+    private RasAyam ras;
     @Column(name = "nama_kelompok")
     private String namaKelompok;
     @Column(name = "tanggal_mulai")
