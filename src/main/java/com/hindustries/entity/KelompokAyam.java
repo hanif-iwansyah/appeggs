@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "kelompok_ayam")
@@ -13,8 +14,10 @@ public class KelompokAyam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne//(fetch = FetchType.LAZY)
     @JoinColumn(name = "kandang_id", nullable = false)
     private int kandangId;
+    @ManyToOne//(fetch = FetchType.LAZY)
     @JoinColumn(name = "ras_id", nullable = false)
     private int rasId;
     @Column(name = "nama_kelompok")
@@ -23,11 +26,6 @@ public class KelompokAyam {
     private Date tanggalMulai;
     @Column(name = "populasi_awal")
     private int populasiAwal;
+    @OneToMany(mappedBy = "kelompokAyam", cascade = CascadeType.ALL)
+    private List<ProduksiTelur> produksiTelurList;
 }
-
-//id bigserial primary key,
-//kandang_id bigint references kandang(id),
-//ras_id bigint references ras_ayam(id),
-//nama_kelompok varchar(150),
-//tanggal_mulai date,
-//populasi_awal integer
