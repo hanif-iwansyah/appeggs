@@ -6,6 +6,7 @@ import com.hindustries.dto.response.StokObatResponse;
 import com.hindustries.entity.StokObat;
 import com.hindustries.mapper.StokObatMapper;
 import com.hindustries.repository.StokObatRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,7 +30,8 @@ public class StokObatService implements BaseService<StokObatRequest, StokObatRes
 
     @Override
     public StokObatResponse update(Long id, StokObatRequest request) {
-        StokObat entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Stok Obat", id));
+        StokObat entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_OBAT, id));
         mapper.updateEntityFromRequest(request, entity);
         repository.save(entity);
         return mapper.toResponse(entity);
@@ -42,11 +44,13 @@ public class StokObatService implements BaseService<StokObatRequest, StokObatRes
 
     @Override
     public StokObatResponse findById(Long id) {
-        return mapper.toResponse(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Stok Obat", id)));
+        return mapper.toResponse(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_OBAT, id)));
     }
 
     @Override
     public void delete(Long id) {
-        repository.delete(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Stok Obat", id)));
+        repository.delete(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_OBAT, id)));
     }
 }

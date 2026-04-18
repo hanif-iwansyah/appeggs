@@ -6,6 +6,7 @@ import com.hindustries.dto.response.JadwalVaksinResponse;
 import com.hindustries.entity.JadwalVaksin;
 import com.hindustries.mapper.JadwalVaksinMapper;
 import com.hindustries.repository.JadwalVaksinRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,7 +30,8 @@ public class JadwalVaksinService implements BaseService<JadwalVaksinRequest, Jad
 
     @Override
     public JadwalVaksinResponse update(Long id, JadwalVaksinRequest request) {
-        JadwalVaksin entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Jadwal Vaksin", id));
+        JadwalVaksin entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.JADWAL_VAKSIN, id));
         mapper.updateEntityFromRequest(request, entity);
         repository.save(entity);
         return mapper.toResponse(entity);
@@ -43,13 +45,15 @@ public class JadwalVaksinService implements BaseService<JadwalVaksinRequest, Jad
 
     @Override
     public JadwalVaksinResponse findById(Long id) {
-        JadwalVaksin entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Jadwal Vaksin", id));
+        JadwalVaksin entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.JADWAL_VAKSIN, id));
         return mapper.toResponse(entity);
     }
 
     @Override
     public void delete(Long id) {
-        repository.delete(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Jadwal Vaksin", id)));
+        repository.delete(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.JADWAL_VAKSIN, id)));
     }
 
 }

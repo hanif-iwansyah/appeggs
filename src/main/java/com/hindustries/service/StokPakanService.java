@@ -6,8 +6,6 @@ import com.hindustries.dto.response.StokPakanResponse;
 import com.hindustries.entity.Gudang;
 import com.hindustries.entity.JenisPakan;
 import com.hindustries.entity.StokPakan;
-import com.hindustries.mapper.GudangMapper;
-import com.hindustries.mapper.JenisPakanMapper;
 import com.hindustries.mapper.StokPakanMapper;
 import com.hindustries.repository.GudangRepository;
 import com.hindustries.repository.JenisPakanRepository;
@@ -26,7 +24,12 @@ public class StokPakanService implements BaseService<StokPakanRequest, StokPakan
     private final StokPakanMapper stokPakanMapper;
 
 
-    public StokPakanService(StokPakanRepository stokPakanRepository, GudangRepository gudangRepository, JenisPakanRepository jenisPakanRepository, StokPakanMapper stokPakanMapper, GudangMapper gudangMapper, JenisPakanMapper jenisPakanMapper) {
+    public StokPakanService(
+            StokPakanRepository stokPakanRepository,
+            GudangRepository gudangRepository,
+            JenisPakanRepository jenisPakanRepository,
+            StokPakanMapper stokPakanMapper
+    ) {
         this.stokPakanRepository = stokPakanRepository;
         this.gudangRepository = gudangRepository;
         this.jenisPakanRepository = jenisPakanRepository;
@@ -35,8 +38,10 @@ public class StokPakanService implements BaseService<StokPakanRequest, StokPakan
 
     @Override
     public StokPakanResponse create(StokPakanRequest request) {
-        Gudang gudang = gudangRepository.findById(request.getGudangId()).orElseThrow(() -> new ResourceNotFoundException("Nama gudang", request.getGudangId()));
-        JenisPakan jenisPakan = jenisPakanRepository.findById(request.getJenisPakanId()).orElseThrow(() -> new ResourceNotFoundException("Nama pakan", request.getJenisPakanId()));
+        Gudang gudang = gudangRepository.findById(request.getGudangId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, request.getGudangId()));
+        JenisPakan jenisPakan = jenisPakanRepository.findById(request.getJenisPakanId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.JENIS_PAKAN, request.getJenisPakanId()));
         StokPakan entity = stokPakanMapper.toEntity(request);
         entity.setGudang(gudang);
         entity.setJenisPakan(jenisPakan);
@@ -46,9 +51,12 @@ public class StokPakanService implements BaseService<StokPakanRequest, StokPakan
 
     @Override
     public StokPakanResponse update(Long id, StokPakanRequest request) {
-        StokPakan entity = stokPakanRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_PAKAN, id));
-        Gudang gudang = gudangRepository.findById(request.getGudangId()).orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, request.getGudangId()));
-        JenisPakan jenisPakan = jenisPakanRepository.findById(request.getJenisPakanId()).orElseThrow(() -> new ResourceNotFoundException(Constant.JENIS_PAKAN, request.getJenisPakanId()));
+        StokPakan entity = stokPakanRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_PAKAN, id));
+        Gudang gudang = gudangRepository.findById(request.getGudangId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, request.getGudangId()));
+        JenisPakan jenisPakan = jenisPakanRepository.findById(request.getJenisPakanId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.JENIS_PAKAN, request.getJenisPakanId()));
         entity.setJumlahKg(request.getJumlahKg());
         entity.setJenisPakan(jenisPakan);
         entity.setGudang(gudang);
@@ -63,13 +71,14 @@ public class StokPakanService implements BaseService<StokPakanRequest, StokPakan
 
     @Override
     public StokPakanResponse findById(Long id) {
-        StokPakan entity = stokPakanRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Stok pakan", id));
+        StokPakan entity = stokPakanRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_PAKAN, id));
         return stokPakanMapper.toResponse(entity);
     }
 
     @Override
     public void delete(Long id) {
         if (stokPakanRepository.existsById(id)) stokPakanRepository.deleteById(id);
-        else throw new ResourceNotFoundException("Stok pakan", id);
+        else throw new ResourceNotFoundException(Constant.STOK_PAKAN, id);
     }
 }

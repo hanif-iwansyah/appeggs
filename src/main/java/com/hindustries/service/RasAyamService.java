@@ -6,6 +6,7 @@ import com.hindustries.dto.response.RasAyamResponse;
 import com.hindustries.entity.RasAyam;
 import com.hindustries.mapper.RasAyamMapper;
 import com.hindustries.repository.RasAyamRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,7 +30,8 @@ public class RasAyamService implements BaseService<RasAyamRequest, RasAyamRespon
 
     @Override
     public RasAyamResponse update(Long id, RasAyamRequest request) {
-        RasAyam entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Ras Ayam tidak ditemukan", id));
+        RasAyam entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.RAS_AYAM, id));
         mapper.updateEntityFromRequest(request, entity);
         return mapper.toResponse(repository.save(entity));
     }
@@ -41,12 +43,13 @@ public class RasAyamService implements BaseService<RasAyamRequest, RasAyamRespon
 
     @Override
     public RasAyamResponse findById(Long id) {
-        return mapper.toResponse(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Ras Ayam tidak ditemukan", id)));
+        return mapper.toResponse(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.RAS_AYAM, id)));
     }
 
     @Override
     public void delete(Long id) {
         if (repository.existsById(id)) repository.deleteById(id);
-        else throw new ResourceNotFoundException("Ras Ayam tidak ditemukan", id);
+        else throw new ResourceNotFoundException(Constant.RAS_AYAM, id);
     }
 }

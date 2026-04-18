@@ -6,6 +6,7 @@ import com.hindustries.dto.response.PelangganResponse;
 import com.hindustries.entity.Pelanggan;
 import com.hindustries.mapper.PelangganMapper;
 import com.hindustries.repository.PelangganRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,7 +30,8 @@ public class PelangganService implements BaseService<PelangganRequest, Pelanggan
 
     @Override
     public PelangganResponse update(Long id, PelangganRequest request) {
-        Pelanggan entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Gagal edit data pelanggan tidak ditemukan ", id));
+        Pelanggan entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PELANGGAN, id));
         mapper.upadateEntityFromRequest(request, entity);
         return mapper.toResponse(repository.save(entity));
     }
@@ -42,11 +44,13 @@ public class PelangganService implements BaseService<PelangganRequest, Pelanggan
 
     @Override
     public PelangganResponse findById(Long id) {
-        return mapper.toResponse(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Data pelanggan tidak ditemukan", id)));
+        return mapper.toResponse(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PELANGGAN, id)));
     }
 
     @Override
     public void delete(Long id) {
-        repository.delete(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Gagal hapus data pelanggan tidak ditemukan", id)));
+        repository.delete(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PELANGGAN, id)));
     }
 }

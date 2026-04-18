@@ -12,7 +12,6 @@ import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -30,7 +29,8 @@ public class StokTelurService implements BaseService<StokTelurRequest, StokTelur
 
     @Override
     public StokTelurResponse create(StokTelurRequest request) {
-        Gudang gudang = gudangRepository.findById(request.getGudangId()).orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, request.getGudangId()));
+        Gudang gudang = gudangRepository.findById(request.getGudangId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, request.getGudangId()));
         StokTelur entity = stokTelurMapper.toEntity(request);
         entity.setGudang(gudang);
         return stokTelurMapper.toResponse(stokTelurRepository.save(entity));
@@ -38,8 +38,10 @@ public class StokTelurService implements BaseService<StokTelurRequest, StokTelur
 
     @Override
     public StokTelurResponse update(Long id, StokTelurRequest request) {
-        StokTelur entity = stokTelurRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_TELUR, id));
-        Gudang gudang = gudangRepository.findById(request.getGudangId()).orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, request.getGudangId()));
+        StokTelur entity = stokTelurRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_TELUR, id));
+        Gudang gudang = gudangRepository.findById(request.getGudangId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, request.getGudangId()));
         entity.setGradeTelur(request.getGradeTelur());
         entity.setJumlah(request.getJumlah());
         entity.setGudang(gudang);
@@ -54,14 +56,16 @@ public class StokTelurService implements BaseService<StokTelurRequest, StokTelur
 
     @Override
     public StokTelurResponse findById(Long id) {
-        StokTelur entity = stokTelurRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_TELUR, id));
+        StokTelur entity = stokTelurRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_TELUR, id));
         return stokTelurMapper.toResponse(entity);
     }
 
     @Override
     @Transactional
     public void delete(Long id) {
-        StokTelur entity = stokTelurRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_TELUR, id));
+        StokTelur entity = stokTelurRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_TELUR, id));
         stokTelurRepository.delete(entity);
     }
 }

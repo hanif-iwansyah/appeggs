@@ -6,6 +6,7 @@ import com.hindustries.dto.response.GudangResponse;
 import com.hindustries.entity.Gudang;
 import com.hindustries.mapper.GudangMapper;
 import com.hindustries.repository.GudangRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,7 +30,8 @@ public class GudangService implements BaseService<GudangRequest, GudangResponse,
 
     @Override
     public GudangResponse update(Long id, GudangRequest request) {
-        Gudang entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Gagal edit data gudang tidak ditemukan", id));
+        Gudang entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, id));
         mapper.updateEntityFromRequest(request, entity);
         return mapper.toResponse(repository.save(entity));
     }
@@ -42,12 +44,13 @@ public class GudangService implements BaseService<GudangRequest, GudangResponse,
 
     @Override
     public GudangResponse findById(Long id) {
-        return mapper.toResponse(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Gudang tidak ditemukan", id)));
+        return mapper.toResponse(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, id)));
     }
 
     @Override
     public void delete(Long id) {
         if (repository.existsById(id)) repository.deleteById(id);
-        else throw new ResourceNotFoundException("Gagal hapus data gudang tidak ditemukan", id);
+        else throw new ResourceNotFoundException(Constant.GUDANG, id);
     }
 }

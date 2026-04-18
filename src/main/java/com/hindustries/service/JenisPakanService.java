@@ -6,6 +6,7 @@ import com.hindustries.dto.response.JenisPakanResponse;
 import com.hindustries.entity.JenisPakan;
 import com.hindustries.mapper.JenisPakanMapper;
 import com.hindustries.repository.JenisPakanRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,7 +30,8 @@ public class JenisPakanService implements BaseService<JenisPakanRequest, JenisPa
 
     @Override
     public JenisPakanResponse update(Long id, JenisPakanRequest request) {
-        JenisPakan entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Jenis Pakan", id));
+        JenisPakan entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.JENIS_PAKAN, id));
         mapper.updateEntityFromRequest(request, entity);
         repository.save(entity);
         return mapper.toResponse(entity);
@@ -43,13 +45,15 @@ public class JenisPakanService implements BaseService<JenisPakanRequest, JenisPa
 
     @Override
     public JenisPakanResponse findById(Long id) {
-        JenisPakan entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Jenis Pakan", id));
+        JenisPakan entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.JENIS_PAKAN, id));
         return mapper.toResponse(entity);
     }
 
     @Override
     public void delete(Long id) {
-        repository.delete(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Jenis Pakan", id)));
+        repository.delete(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.JENIS_PAKAN, id)));
     }
 
 }

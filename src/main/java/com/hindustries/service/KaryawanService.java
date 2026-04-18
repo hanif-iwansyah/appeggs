@@ -6,6 +6,7 @@ import com.hindustries.dto.response.KaryawanResponse;
 import com.hindustries.entity.Karyawan;
 import com.hindustries.mapper.KaryawanMapper;
 import com.hindustries.repository.KaryawanRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,7 +30,8 @@ public class KaryawanService implements BaseService<KaryawanRequest, KaryawanRes
 
     @Override
     public KaryawanResponse update(Long id, KaryawanRequest request) {
-        Karyawan entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Gagal edit data karyawan tidak ditemukan", id));
+        Karyawan entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KARYAWAN, id));
         mapper.updateEntityFromRequest(request, entity);
         return mapper.toResponse(repository.save(entity));
     }
@@ -42,11 +44,13 @@ public class KaryawanService implements BaseService<KaryawanRequest, KaryawanRes
 
     @Override
     public KaryawanResponse findById(Long id) {
-        return mapper.toResponse(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Data karyawan tidak ditemukan", id)));
+        return mapper.toResponse(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KARYAWAN, id)));
     }
 
     @Override
     public void delete(Long id) {
-        repository.delete(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Gagal hapus data karyawan tidak ditemukan", id)));
+        repository.delete(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KARYAWAN, id)));
     }
 }

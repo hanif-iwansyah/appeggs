@@ -6,6 +6,7 @@ import com.hindustries.dto.response.PeranResponse;
 import com.hindustries.entity.Peran;
 import com.hindustries.mapper.PeranMapper;
 import com.hindustries.repository.PeranRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,7 +30,8 @@ public class PeranService implements BaseService<PeranRequest, PeranResponse, Lo
 
     @Override
     public PeranResponse update(Long id, PeranRequest request) {
-        Peran entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("", id));
+        Peran entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PERAN, id));
         mapper.updateEntityFromRequest(request, entity);
         return mapper.toResponse(repository.save(entity));
     }
@@ -42,13 +44,15 @@ public class PeranService implements BaseService<PeranRequest, PeranResponse, Lo
 
     @Override
     public PeranResponse findById(Long id) {
-        Peran entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("", id));
+        Peran entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PERAN, id));
         return mapper.toResponse(entity);
     }
 
     @Override
     public void delete(Long id) {
-        Peran entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("", id));
+        Peran entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PERAN, id));
         repository.delete(entity);
     }
 }

@@ -6,6 +6,7 @@ import com.hindustries.dto.response.PeternakanResponse;
 import com.hindustries.entity.Peternakan;
 import com.hindustries.mapper.PeternakanMapper;
 import com.hindustries.repository.PeternakanRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -32,7 +33,7 @@ public class PeternakanService implements BaseService<PeternakanRequest, Peterna
     @Override
     public PeternakanResponse update(Long id, PeternakanRequest request) {
         Peternakan entity = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Peternakan tidak ditemukan", id));
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PETERNAKAN, id));
         entity.setNamaPeternakan(request.getNamaPeternakan());
         entity.setLokasi(request.getLokasi());
         entity.setNamaPemilik(request.getNamaPemilik());
@@ -47,18 +48,21 @@ public class PeternakanService implements BaseService<PeternakanRequest, Peterna
 
     @Override
     public PeternakanResponse findById(Long id) {
-        Peternakan entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Peternakan tidak ditemukan", id));
+        Peternakan entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PETERNAKAN, id));
         return mapper.toResponse(entity);
     }
 
     @Override
     public void delete(Long id) {
-        Peternakan entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Peternakan tidak ditemukan", id));
+        Peternakan entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PETERNAKAN, id));
         repository.deleteById(entity.getId());
     }
 
     private Peternakan findEntityById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("", id));
+        return repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PETERNAKAN, id));
     }
 
 }

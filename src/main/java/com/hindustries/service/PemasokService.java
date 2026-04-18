@@ -6,6 +6,7 @@ import com.hindustries.dto.response.PemasokResponse;
 import com.hindustries.entity.Pemasok;
 import com.hindustries.mapper.PemasokMapper;
 import com.hindustries.repository.PemasokRepository;
+import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,7 +30,8 @@ public class PemasokService implements BaseService<PemasokRequest, PemasokRespon
 
     @Override
     public PemasokResponse update(Long id, PemasokRequest request) {
-        Pemasok entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Pemasok", id));
+        Pemasok entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PEMASOK, id));
         mapper.updateEntityFromRequest(request, entity);
         repository.save(entity);
         return mapper.toResponse(entity);
@@ -43,13 +45,15 @@ public class PemasokService implements BaseService<PemasokRequest, PemasokRespon
 
     @Override
     public PemasokResponse findById(Long id) {
-        Pemasok entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Pemasok", id));
+        Pemasok entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PEMASOK, id));
         return mapper.toResponse(entity);
     }
 
     @Override
     public void delete(Long id) {
-        repository.delete(repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Pemasok", id)));
+        repository.delete(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PEMASOK, id)));
     }
 
 }
