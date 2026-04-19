@@ -24,8 +24,7 @@ public class BarangInventarisService implements BaseService<BarangInventarisRequ
 
     @Override
     public BarangInventarisResponse create(BarangInventarisRequest request) {
-        BarangInventaris entity = repository.save(mapper.toEntity(request));
-        return mapper.toResponse(entity);
+        return mapper.toResponse(repository.save(mapper.toEntity(request)));
     }
 
     @Override

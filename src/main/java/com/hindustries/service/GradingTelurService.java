@@ -35,7 +35,7 @@ public class GradingTelurService implements BaseService<GradingTelurRequest, Gra
                 .orElseThrow(() -> new ResourceNotFoundException(Constant.PRODUKSI_TELUR, request.getProduksiTelurId()));
         GradingTelur entity = mapper.toEntity(request);
         entity.setProduksiTelur(produksiTelur);
-        return mapper.toResponse(repository.save(mapper.toEntity(request)));
+        return mapper.toResponse(repository.save(entity));
     }
 
     @Override

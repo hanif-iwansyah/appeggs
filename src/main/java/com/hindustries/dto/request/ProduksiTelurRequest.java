@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Setter
 public class ProduksiTelurRequest {
     @NotBlank
-    private Long kelompok_ayam_id;
+    private Long kelompokAyamId;
     @NotBlank
     private LocalDate tanggalProduksi;
     @NotBlank

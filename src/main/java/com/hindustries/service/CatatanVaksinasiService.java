@@ -39,7 +39,7 @@ public class CatatanVaksinasiService implements BaseService<CatatanVaksinasiRequ
         CatatanVaksinasi entity = mapper.toEntity(request);
         entity.setJadwalVaksin(jadwalVaksin);
         entity.setKelompokAyam(kelompokAyam);
-        return mapper.toResponse(repository.save(mapper.toEntity(request)));
+        return mapper.toResponse(repository.save(entity));
     }
 
     @Override
