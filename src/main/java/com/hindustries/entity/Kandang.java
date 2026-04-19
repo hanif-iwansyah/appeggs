@@ -13,7 +13,7 @@ public class Kandang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne//(fetch = FetchType.LAZY)
     @JoinColumn(name = "peternakan_id", nullable = false)
     private Peternakan peternakan;
     @Column(name = "nama_kandang")

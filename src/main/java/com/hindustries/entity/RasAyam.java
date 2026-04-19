@@ -12,6 +12,8 @@ public class RasAyam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "nama_ras")
     private String namaRas;
+    @Column(name = "asal")
     private String asal;
 }
