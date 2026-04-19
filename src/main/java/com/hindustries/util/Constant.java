@@ -2,6 +2,7 @@ package com.hindustries.util;
 
 public final class Constant {
 
+
     private Constant() {
         // prevent instantiation
     }
@@ -25,4 +26,6 @@ public final class Constant {
     public static final String PRODUKSI_TELUR  = "Data produksi telur";
     public static final String CATATAN_VAKSINASI  = "Data vaksinasi";
     public static final String KELOMPOK_AYAM  = "Data kelompok ayam";
+    public static final String KASUS_PENYAKIT = "Data kasus penyakit";
+
 }

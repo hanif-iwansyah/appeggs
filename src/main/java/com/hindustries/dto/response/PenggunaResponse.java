@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class PenggunaResponse {
     private String namaPengguna;
-    private Long peranId;
+    private String namaPeran;
 }

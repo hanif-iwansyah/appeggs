@@ -16,6 +16,7 @@ public class Pengguna {
     private String namaPengguna;
     @Column(name = "kata_sandi")
     private String kataSandi;
-    @Column(name = "peran_id")
-    private Long peranId;
+    @ManyToOne
+    @JoinColumn(name = "peran_id", nullable = false)
+    private Peran peran;
 }
