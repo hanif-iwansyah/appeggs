@@ -6,10 +6,9 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class GradingTelurResponse {
+public class KematianAyamResponse {
     private String namaKelompokAyam;
-    private LocalDate tanggalProduksi;
-    private int gradeA;
-    private int gradeB;
-    private int gradeC;
+    private String namaPenyakit;
+    private LocalDate tanggalKasus;
+    private int jumlahTerkena;
 }

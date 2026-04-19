@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class GradingTelurRequest {
     @NotBlank
-    private Long produksi_telur_id;
+    private Long produksiTelurId;
     @NotBlank
     private int gradeA;
     @NotBlank

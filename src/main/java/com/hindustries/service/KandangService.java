@@ -34,7 +34,7 @@ public class KandangService implements BaseService<KandangRequest, KandangRespon
     @Override
     public KandangResponse create(KandangRequest request) {
         Peternakan peternakan = peternakanRepository.findById(request.getPeternakanId())
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.KANDANG, request.getPeternakanId()));
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PETERNAKAN, request.getPeternakanId()));
         Kandang entity = kandangMapper.toEntity(request);
         entity.setPeternakan(peternakan);
         Kandang saved = kandangRepository.save(entity);
@@ -43,9 +43,10 @@ public class KandangService implements BaseService<KandangRequest, KandangRespon
 
     @Override
     public KandangResponse update(Long id, KandangRequest request) {
-        Kandang entity = kandangRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Constant.KANDANG, id));
-        Peternakan peternakan = peternakanRepository.findById(request.getPeternakanId())
+        Kandang entity = kandangRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Constant.KANDANG, id));
+        Peternakan peternakan = peternakanRepository.findById(request.getPeternakanId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PETERNAKAN, id));
         entity.setNamaKandang(request.getNamaKandang());
         entity.setKapasitas(request.getKapasitas());
         entity.setKontrolSuhu(request.getKontrolSuhu());

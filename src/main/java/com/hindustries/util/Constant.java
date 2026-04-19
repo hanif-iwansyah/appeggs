@@ -6,18 +6,23 @@ public final class Constant {
         // prevent instantiation
     }
 
-    public static final String GUDANG = "Data Gudang";
-    public static final String JADWAL_VAKSIN = "Data Jadwal Vaksin";
-    public static final String JENIS_PAKAN  = "Data Jenis Pakan";
-    public static final String KANDANG  = "Data Kandang";
-    public static final String KARYAWAN  = "Data Karyawan";
-    public static final String PELANGGAN  = "Data Pelanggan";
-    public static final String PEMASOK  = "Data Pemasok";
-    public static final String PENGGUNA  = "Data Pengguna";
-    public static final String PERAN  = "Data Peran";
-    public static final String PETERNAKAN  = "Data Peternakan";
-    public static final String RAS_AYAM  = "Data Ras Ayam";
-    public static final String STOK_OBAT  = "Data Stok Obat";
-    public static final String STOK_PAKAN  = "Data Stok Pakan";
-    public static final String STOK_TELUR  = "Data Stok Telur";
+    public static final String GUDANG = "Data gudang";
+    public static final String JADWAL_VAKSIN = "Data jadwal vaksin";
+    public static final String JENIS_PAKAN  = "Data jenis pakan";
+    public static final String KANDANG  = "Data kandang";
+    public static final String KARYAWAN  = "Data karyawan";
+    public static final String PELANGGAN  = "Data pelanggan";
+    public static final String PEMASOK  = "Data pemasok";
+    public static final String PENGGUNA  = "Data pengguna";
+    public static final String PERAN  = "Data peran";
+    public static final String PETERNAKAN  = "Data peternakan";
+    public static final String RAS_AYAM  = "Data ras ayam";
+    public static final String STOK_OBAT  = "Data stok obat";
+    public static final String STOK_PAKAN  = "Data stok pakan";
+    public static final String STOK_TELUR  = "Data stok telur";
+    public static final String GRADING_TELUR  = "Data grading telur";
+    public static final String BARANG_INVENTARIS  = "Data barang inventaris";
+    public static final String PRODUKSI_TELUR  = "Data produksi telur";
+    public static final String CATATAN_VAKSINASI  = "Data vaksinasi";
+    public static final String KELOMPOK_AYAM  = "Data kelompok ayam";
 }
