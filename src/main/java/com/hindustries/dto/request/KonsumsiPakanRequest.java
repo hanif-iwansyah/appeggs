@@ -1,12 +1,15 @@
 package com.hindustries.dto.request;
 
-import com.hindustries.entity.JenisPakan;
+import lombok.Getter;
+import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Getter
+@Setter
 public class KonsumsiPakanRequest {
     private Long kelompokAyamId;
-    private JenisPakan jenisPakan;
+    private Long jenisPakanId;
     private LocalDate tanggalKonsumsi;
     private BigDecimal jumlahKg;
 }

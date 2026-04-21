@@ -27,5 +27,6 @@ public final class Constant {
     public static final String CATATAN_VAKSINASI  = "Data vaksinasi";
     public static final String KELOMPOK_AYAM  = "Data kelompok ayam";
     public static final String KASUS_PENYAKIT = "Data kasus penyakit";
-
+    public static final String KEMATIAN_AYAM = "Data kematian ayam";
+    public static final String KONSUMSI_PAKAN = "Data konsumsi pakan";
 }

@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Setter
 public class KonsumsiPakanResponse {
     private String namaKelompokAyam;
-    private JenisPakan jenisPakan;
+    private String namaJenisPakan;
     private LocalDate tanggalKonsumsi;
     private BigDecimal jumlahKg;
 }
