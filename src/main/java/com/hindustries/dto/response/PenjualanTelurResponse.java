@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class PenjualanTelurResponse {
-    private Long pelangganId;
+    private String namaPelanggan;
     private BigDecimal totalHarga;
     private LocalDateTime tanggalPenjualan;
 }

@@ -2,7 +2,7 @@ package com.hindustries.mapper;
 
 import com.hindustries.dto.request.PenjualanTelurRequest;
 import com.hindustries.dto.response.PenjualanTelurResponse;
-import com.hindustries.entity.PenjualanTelur;
+import com.hindustries.entity.core.PenjualanTelur;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import java.util.List;
