@@ -1,6 +1,6 @@
 package com.hindustries.dto.request.core;
 
-simport lombok.Getter;
+import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDate;
 

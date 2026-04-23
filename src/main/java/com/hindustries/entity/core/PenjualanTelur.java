@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDate;
 
 @Entity
@@ -16,7 +15,7 @@ public class PenjualanTelur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "pelanggan_id")
-    private BigInteger pelangganId;
+    private Long pelangganId;
     @Column(name = "tanggal_penjualan")
     private LocalDate tanggalPenjualan;
     @Column(name = "total_harga")
