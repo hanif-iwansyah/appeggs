@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class PesananPenjualanDetail {
+public class PesananPenjualanDetailRequest {
     private Long pesananPenjualanId;
     private String produk;
     private Integer jumlah;
