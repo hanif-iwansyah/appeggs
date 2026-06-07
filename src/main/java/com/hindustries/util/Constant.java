@@ -31,8 +31,15 @@ public final class Constant {
     public static final String KEMATIAN_AYAM = "Data kematian ayam";
     public static final String KONSUMSI_PAKAN = "Data konsumsi pakan";
     public static final String PEMBAYARAN = "Data pembayaran";
+    public static final String PENGIRIMAN = "Data pengiriman";
+    public static final String PESANAN_PEMBELIAN = "Data pesanan pembelian";
     public static final String PESANAN_PENJUALAN = "Data pesanan penjualan";
+    public static final String PESANAN_PENJUALAN_DETAIL = "Data pesanan penjualan detail";
     public static final String PENJUALAN_TELUR = "Data penjualan telur";
     public static final String DETAIL_PENJUALAN_TELUR = "Data detail penjualan telur";
+    public static final String PEMBELIAN_PAKAN = "Data pembelian pakan";
+    public static final String PEMBELIAN_PAKAN_DETAIL = "Data pembelian pakan detail";
+    public static final String LAPORAN_HARIAN = "Data laporan harian";
+    public static final String LAPORAN_BULANAN = "Data laporan bulanan";
 
 }

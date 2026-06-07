@@ -6,7 +6,7 @@ import com.hindustries.dto.response.core.PenjualanTelurDetailResponse;
 import com.hindustries.entity.core.PenjualanTelur;
 import com.hindustries.entity.core.PenjualanTelurDetail;
 import com.hindustries.mapper.core.PenjualanTelurDetailMapper;
-import com.hindustries.repository.core.DetailPenjualanTelurRepository;
+import com.hindustries.repository.core.PenjualanTelurDetailRepository;
 import com.hindustries.repository.core.PenjualanTelurRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
@@ -16,11 +16,11 @@ import java.util.List;
 @Service
 public class PenjualanTelurDetailService implements BaseService<PenjualanTelurDetailRequest, PenjualanTelurDetailResponse, Long> {
 
-    private final DetailPenjualanTelurRepository repository;
+    private final PenjualanTelurDetailRepository repository;
     private final PenjualanTelurRepository penjualanTelurRepository;
     private final PenjualanTelurDetailMapper mapper;
 
-    public PenjualanTelurDetailService(DetailPenjualanTelurRepository repository, PenjualanTelurRepository penjualanTelurRepository, PenjualanTelurDetailMapper mapper) {
+    public PenjualanTelurDetailService(PenjualanTelurDetailRepository repository, PenjualanTelurRepository penjualanTelurRepository, PenjualanTelurDetailMapper mapper) {
         this.repository = repository;
         this.penjualanTelurRepository = penjualanTelurRepository;
         this.mapper = mapper;

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class PembelianPakanDetail {
+public class PembelianPakanDetailRequest {
     private Long pembelianPakanId;
     private Long jenisPakanId;
     private BigDecimal jumlahKg;
