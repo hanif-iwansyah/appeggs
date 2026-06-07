@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/stok-telur")
 public class StokTelurController extends BaseController<StokTelurRequest, StokTelurResponse, Long> {
-
     private final StokTelurService service;
-
     public StokTelurController(StokTelurService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<StokTelurRequest, StokTelurResponse, Long> getService() {
         return service;

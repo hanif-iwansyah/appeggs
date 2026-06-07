@@ -11,16 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/pemasok")
 public class PemasokController extends BaseController<PemasokRequest, PemasokResponse, Long> {
-
     private final PemasokService service;
-
     public PemasokController(PemasokService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<PemasokRequest, PemasokResponse, Long> getService() {
         return service;
     }
-
 }

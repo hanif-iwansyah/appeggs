@@ -11,16 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/jenis-pakan")
 public class JenisPakanController extends BaseController<JenisPakanRequest, JenisPakanResponse, Long> {
-
     private final JenisPakanService service;
-
     public JenisPakanController(JenisPakanService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<JenisPakanRequest, JenisPakanResponse, Long> getService() {
         return service;
     }
-
 }

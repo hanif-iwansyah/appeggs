@@ -11,16 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/jadwal-vaksin")
 public class JadwalVaksinController extends BaseController<JadwalVaksinRequest, JadwalVaksinResponse, Long> {
-
     private final JadwalVaksinService service;
-
     public JadwalVaksinController(JadwalVaksinService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<JadwalVaksinRequest, JadwalVaksinResponse, Long> getService() {
         return service;
     }
-
 }

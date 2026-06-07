@@ -1,7 +1,7 @@
 package com.hindustries.mapper.core;
 
-import com.hindustries.dto.request.PenjualanTelurRequest;
-import com.hindustries.dto.response.PenjualanTelurResponse;
+import com.hindustries.dto.request.core.PenjualanTelurRequest;
+import com.hindustries.dto.response.core.PenjualanTelurResponse;
 import com.hindustries.entity.core.PenjualanTelur;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

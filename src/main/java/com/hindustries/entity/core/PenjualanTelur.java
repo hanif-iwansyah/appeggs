@@ -1,5 +1,6 @@
 package com.hindustries.entity.core;
 
+import com.hindustries.entity.Pelanggan;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,8 +15,9 @@ public class PenjualanTelur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "pelanggan_id")
-    private Long pelangganId;
+    @ManyToOne
+    @JoinColumn(name = "pelanggan_id", nullable = false)
+    private Pelanggan Pelanggan;
     @Column(name = "tanggal_penjualan")
     private LocalDate tanggalPenjualan;
     @Column(name = "total_harga")

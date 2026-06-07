@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/kasus-penyakit")
 public class KasusPenyakitController extends BaseController<KasusPenyakitRequest, KasusPenyakitResponse, Long> {
-
     private final KasusPenyakitService service;
-
     public KasusPenyakitController(KasusPenyakitService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<KasusPenyakitRequest, KasusPenyakitResponse, Long> getService() {
         return service;

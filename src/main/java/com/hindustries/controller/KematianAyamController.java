@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/kematian-ayam")
 public class KematianAyamController extends BaseController<KematianAyamRequest, KematianAyamResponse, Long> {
-
     private final KematianAyamService service;
-
     public KematianAyamController(KematianAyamService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<KematianAyamRequest, KematianAyamResponse, Long> getService() {
         return service;

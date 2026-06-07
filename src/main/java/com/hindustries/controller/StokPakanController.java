@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/stok-pakan")
 public class StokPakanController extends BaseController<StokPakanRequest, StokPakanResponse, Long> {
-
     private final StokPakanService service;
-
     public StokPakanController(StokPakanService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<StokPakanRequest, StokPakanResponse, Long> getService() {
         return service;

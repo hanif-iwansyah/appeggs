@@ -11,16 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/ras-ayam")
 public class RasAyamController extends BaseController<RasAyamRequest, RasAyamResponse, Long> {
-
     private final RasAyamService service;
-
     public RasAyamController(RasAyamService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<RasAyamRequest, RasAyamResponse, Long> getService() {
         return service;
     }
-
 }

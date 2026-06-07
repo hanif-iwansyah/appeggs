@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/gudang")
 public class GudangController extends BaseController<GudangRequest, GudangResponse, Long> {
-
     private final GudangService service;
-
     public GudangController(GudangService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<GudangRequest, GudangResponse, Long> getService() {
         return service;

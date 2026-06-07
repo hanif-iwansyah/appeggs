@@ -10,16 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/kandang")
 public class KandangController extends BaseController<KandangRequest, KandangResponse, Long> {
-
     private final KandangService service;
-
     public KandangController(KandangService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<KandangRequest, KandangResponse, Long> getService() {
         return service;
     }
-
 }

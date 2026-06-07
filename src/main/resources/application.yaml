@@ -1,6 +1,6 @@
 server:
   port: 9091
-
+  forward-headers-strategy: framework
 spring:
   application:
     name: app-eggs
@@ -31,5 +31,5 @@ springdoc:
   api-docs:
     enabled: true
   swagger-ui:
-    path: /swagger-ui.html
+    path: /swagger-ui
   override-with-generic-response: false

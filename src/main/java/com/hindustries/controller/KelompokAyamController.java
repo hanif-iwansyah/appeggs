@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/kelompok-ayam")
 public class KelompokAyamController extends BaseController<KelompokAyamRequest, KelompokAyamResponse, Long> {
-
     private final KelompokAyamService service;
-
     public KelompokAyamController(KelompokAyamService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<KelompokAyamRequest, KelompokAyamResponse, Long> getService() {
         return service;

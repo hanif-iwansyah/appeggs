@@ -23,10 +23,16 @@ public final class Constant {
     public static final String STOK_TELUR  = "Data stok telur";
     public static final String GRADING_TELUR  = "Data grading telur";
     public static final String BARANG_INVENTARIS  = "Data barang inventaris";
+    public static final String TRANSAKSI_INVENTARIS  = "Data transaksi inventaris";
     public static final String PRODUKSI_TELUR  = "Data produksi telur";
     public static final String CATATAN_VAKSINASI  = "Data vaksinasi";
     public static final String KELOMPOK_AYAM  = "Data kelompok ayam";
     public static final String KASUS_PENYAKIT = "Data kasus penyakit";
     public static final String KEMATIAN_AYAM = "Data kematian ayam";
     public static final String KONSUMSI_PAKAN = "Data konsumsi pakan";
+    public static final String PEMBAYARAN = "Data pembayaran";
+    public static final String PESANAN_PENJUALAN = "Data pesanan penjualan";
+    public static final String PENJUALAN_TELUR = "Data penjualan telur";
+    public static final String DETAIL_PENJUALAN_TELUR = "Data detail penjualan telur";
+
 }

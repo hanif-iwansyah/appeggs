@@ -10,7 +10,6 @@ import com.hindustries.repository.KelompokAyamRepository;
 import com.hindustries.repository.ProduksiTelurRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
-import org.aspectj.weaver.NewConstructorTypeMunger;
 import org.springframework.stereotype.Service;
 import java.util.List;
 

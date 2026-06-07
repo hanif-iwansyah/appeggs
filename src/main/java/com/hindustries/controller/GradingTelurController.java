@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/grading-telur")
 public class GradingTelurController extends BaseController<GradingTelurRequest, GradingTelurResponse, Long> {
-
     private final GradingTelurService service;
-
     public GradingTelurController(GradingTelurService service) {
         this.service = service;
     }
-
     @Override
     protected BaseService<GradingTelurRequest, GradingTelurResponse, Long> getService() {
         return service;
