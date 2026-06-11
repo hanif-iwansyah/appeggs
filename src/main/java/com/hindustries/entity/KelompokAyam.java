@@ -28,4 +28,7 @@ public class KelompokAyam {
     private int populasiAwal;
     @OneToMany(mappedBy = "kelompokAyam", cascade = CascadeType.ALL)
     private List<ProduksiTelur> produksiTelurList;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status_kelompok")
+    private StatusKelompok statusKelompok = StatusKelompok.AKTIF;
 }
