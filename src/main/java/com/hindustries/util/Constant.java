@@ -41,5 +41,5 @@ public final class Constant {
     public static final String PEMBELIAN_PAKAN_DETAIL = "Data pembelian pakan detail";
     public static final String LAPORAN_HARIAN = "Data laporan harian";
     public static final String LAPORAN_BULANAN = "Data laporan bulanan";
-
+    public static final String PENGAKIRAN_AYAM = "Data pengakiran ayam";
 }

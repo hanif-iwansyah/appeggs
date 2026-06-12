@@ -3,6 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.KelompokAyamRequest;
 import com.hindustries.dto.response.KelompokAyamResponse;
+import com.hindustries.dto.response.KelompokAyamRingkasanResponse;
 import com.hindustries.entity.Kandang;
 import com.hindustries.entity.KelompokAyam;
 import com.hindustries.entity.RasAyam;
@@ -13,6 +14,9 @@ import com.hindustries.repository.RasAyamRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -74,4 +78,21 @@ public class KelompokAyamService implements BaseService<KelompokAyamRequest, Kel
         repository.delete(repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Constant.KELOMPOK_AYAM, id)));
     }
+
+    public KelompokAyamRingkasanResponse findRingkasan(Long id) {
+        KelompokAyam k = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KELOMPOK_AYAM, id));
+        Integer aktual = repository.findPopulasiAktual(id);
+        long umur = ChronoUnit.DAYS.between(k.getTanggalMulai().toInstant().atZone(ZoneId.systemDefault())
+                .toLocalDate(), LocalDate.now());
+        KelompokAyamRingkasanResponse result = new KelompokAyamRingkasanResponse();
+        result.setId(k.getId());
+        result.setNamaKelompok(k.getNamaKelompok());
+        result.setStatusKelompok(String.valueOf(k.getStatusKelompok() == null ? "BELUM_ADA_STATUS" : k.getStatusKelompok()));
+        result.setPopulasiAwal(k.getPopulasiAwal());
+        result.setPopulasiAktual(aktual);
+        result.setUmurHari(umur);
+        return result;
+    }
+
 }
