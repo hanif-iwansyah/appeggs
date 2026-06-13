@@ -1,14 +1,17 @@
 package com.hindustries.entity.core;
 
 import com.hindustries.entity.Peternakan;
+import com.hindustries.util.Constant;
+import com.hindustries.util.ResourceLabel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name = "laporan_bulanan")
 @Getter
 @Setter
+@Entity
+@Table(name = "laporan_bulanan")
+@ResourceLabel(Constant.LAPORAN_BULANAN)
 public class LaporanBulanan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

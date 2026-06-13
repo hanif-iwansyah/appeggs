@@ -1,13 +1,16 @@
 package com.hindustries.entity;
 
+import com.hindustries.util.Constant;
+import com.hindustries.util.ResourceLabel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "grading_telur")
 @Getter
 @Setter
+@Table(name = "grading_telur")
+@ResourceLabel(Constant.GRADING_TELUR)
 public class GradingTelur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

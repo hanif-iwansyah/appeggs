@@ -1,5 +1,7 @@
 package com.hindustries.entity;
 
+import com.hindustries.util.Constant;
+import com.hindustries.util.ResourceLabel;
 import com.hindustries.util.StatusKelompok;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,9 +10,10 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "kelompok_ayam")
 @Getter
 @Setter
+@Table(name = "kelompok_ayam")
+@ResourceLabel(Constant.KELOMPOK_AYAM)
 public class KelompokAyam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

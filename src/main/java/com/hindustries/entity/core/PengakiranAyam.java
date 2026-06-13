@@ -9,12 +9,11 @@ import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDate;
 
-
+@Getter
+@Setter
 @Entity
 @Table(name = "pengakiran_ayam")
 @ResourceLabel(Constant.PENGAKIRAN_AYAM)
-@Getter
-@Setter
 public class PengakiranAyam {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,5 +28,4 @@ public class PengakiranAyam {
     private AlasanAfkir alasanAfkir;
     @Column(name = "hasil_afkir")
     private String hasilAfkir;
-
 }

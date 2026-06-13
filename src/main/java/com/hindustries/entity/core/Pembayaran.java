@@ -1,15 +1,18 @@
 package com.hindustries.entity.core;
 
+import com.hindustries.util.Constant;
+import com.hindustries.util.ResourceLabel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "pembayaran")
 @Getter
 @Setter
+@Entity
+@Table(name = "pembayaran")
+@ResourceLabel(Constant.PEMBAYARAN)
 public class Pembayaran {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

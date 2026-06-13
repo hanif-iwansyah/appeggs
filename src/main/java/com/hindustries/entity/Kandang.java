@@ -1,14 +1,17 @@
 package com.hindustries.entity;
 
+import com.hindustries.util.Constant;
+import com.hindustries.util.ResourceLabel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.sql.Timestamp;
 
-@Entity
-@Table(name = "kandang")
 @Getter
 @Setter
+@Entity
+@Table(name = "kandang")
+@ResourceLabel(Constant.KANDANG)
 public class Kandang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,7 @@
 package com.hindustries.entity;
 
+import com.hindustries.util.Constant;
+import com.hindustries.util.ResourceLabel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,9 +9,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "konsumsi_pakan")
 @Getter
 @Setter
+@Table(name = "konsumsi_pakan")
+@ResourceLabel(Constant.KONSUMSI_PAKAN)
 public class KonsumsiPakan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
