@@ -2,7 +2,7 @@ package com.hindustries.base;
 
 import com.hindustries.util.ResourceLabel;
 import com.hindustries.util.ResourceNotFoundException;
-import org.springframework.core.GenericTypeResolver;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,14 +14,13 @@ public abstract class BaseServiceImpl<Entity, Req, Res, ID> implements BaseServi
     protected abstract void updateEntityFromReq(Req request, Entity entity);
 
     protected void beforeCreate(Req req, Entity entity) {}
+    protected void afterCreate(Req req, Entity entity) {}
     protected void beforeUpdate(Req req, Entity entity) {}
 
     private final String resourceLabel;
 
-    public BaseServiceImpl() {
-        Class<?> entityClass = GenericTypeResolver.resolveTypeArgument(getClass(), BaseServiceImpl.class);
-        assert entityClass != null;
-        if (entityClass.isAnnotationPresent(ResourceLabel.class)) {
+    protected BaseServiceImpl(Class<Entity> entityClass) {
+        if (entityClass.isAnnotationPresent(ResourceLabel.class)){
             this.resourceLabel = entityClass.getAnnotation(ResourceLabel.class).value();
         } else {
             this.resourceLabel = entityClass.getSimpleName();
@@ -29,9 +28,12 @@ public abstract class BaseServiceImpl<Entity, Req, Res, ID> implements BaseServi
     }
 
     @Override
+    @Transactional
     public Res create(Req request) {
         Entity entity = mapToEntity(request);
+        beforeCreate(request, entity);
         Entity savedEntity = getRepository().save(entity);
+        afterCreate(request, savedEntity);
         return mapToResponse(savedEntity);
     }
 
@@ -39,7 +41,10 @@ public abstract class BaseServiceImpl<Entity, Req, Res, ID> implements BaseServi
     public Res update(ID id, Req request) {
         Entity entity = getRepository().findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(this.resourceLabel, id));
-        return mapToResponse(entity);
+        updateEntityFromReq(request, entity);
+        beforeUpdate(request, entity);
+        Entity updated = getRepository().save(entity);
+        return mapToResponse(updated);
     }
 
     @Override
@@ -63,6 +68,4 @@ public abstract class BaseServiceImpl<Entity, Req, Res, ID> implements BaseServi
         }
         getRepository().deleteById(id);
     }
-
-
 }

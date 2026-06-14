@@ -3,7 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.KaryawanRequest;
 import com.hindustries.dto.response.KaryawanResponse;
-import com.hindustries.entity.Karyawan;
+import com.hindustries.entity.master.Karyawan;
 import com.hindustries.mapper.KaryawanMapper;
 import com.hindustries.repository.KaryawanRepository;
 import com.hindustries.util.Constant;

@@ -3,7 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.RasAyamRequest;
 import com.hindustries.dto.response.RasAyamResponse;
-import com.hindustries.entity.RasAyam;
+import com.hindustries.entity.master.RasAyam;
 import com.hindustries.mapper.RasAyamMapper;
 import com.hindustries.repository.RasAyamRepository;
 import com.hindustries.util.Constant;

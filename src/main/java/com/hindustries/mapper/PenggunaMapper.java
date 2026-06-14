@@ -2,7 +2,7 @@ package com.hindustries.mapper;
 
 import com.hindustries.dto.request.PenggunaRequest;
 import com.hindustries.dto.response.PenggunaResponse;
-import com.hindustries.entity.Pengguna;
+import com.hindustries.entity.master.Pengguna;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

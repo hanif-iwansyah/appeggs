@@ -3,7 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.StokTelurRequest;
 import com.hindustries.dto.response.StokTelurResponse;
-import com.hindustries.entity.Gudang;
+import com.hindustries.entity.master.Gudang;
 import com.hindustries.entity.StokTelur;
 import com.hindustries.mapper.StokTelurMapper;
 import com.hindustries.repository.GudangRepository;

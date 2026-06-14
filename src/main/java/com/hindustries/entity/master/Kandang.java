@@ -1,4 +1,4 @@
-package com.hindustries.entity;
+package com.hindustries.entity.master;
 
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceLabel;

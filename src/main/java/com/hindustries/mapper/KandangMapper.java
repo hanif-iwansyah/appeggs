@@ -2,7 +2,7 @@ package com.hindustries.mapper;
 
 import com.hindustries.dto.request.KandangRequest;
 import com.hindustries.dto.response.KandangResponse;
-import com.hindustries.entity.Kandang;
+import com.hindustries.entity.master.Kandang;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import java.util.List;

@@ -3,7 +3,7 @@ package com.hindustries.service.core;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.core.LaporanBulananRequest;
 import com.hindustries.dto.response.core.LaporanBulananResponse;
-import com.hindustries.entity.Peternakan;
+import com.hindustries.entity.master.Peternakan;
 import com.hindustries.entity.core.LaporanBulanan;
 import com.hindustries.mapper.core.LaporanBulananMapper;
 import com.hindustries.repository.PeternakanRepository;

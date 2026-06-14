@@ -2,7 +2,7 @@ package com.hindustries.mapper;
 
 import com.hindustries.dto.request.PelangganRequest;
 import com.hindustries.dto.response.PelangganResponse;
-import com.hindustries.entity.Pelanggan;
+import com.hindustries.entity.master.Pelanggan;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import java.util.List;

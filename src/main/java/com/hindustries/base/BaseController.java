@@ -4,7 +4,6 @@ import com.hindustries.util.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 public abstract class BaseController<Req, Res, ID> {

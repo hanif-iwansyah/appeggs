@@ -3,7 +3,7 @@ package com.hindustries.service.core;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.core.PenjualanTelurRequest;
 import com.hindustries.dto.response.core.PenjualanTelurResponse;
-import com.hindustries.entity.Pelanggan;
+import com.hindustries.entity.master.Pelanggan;
 import com.hindustries.entity.core.PenjualanTelur;
 import com.hindustries.mapper.core.PenjualanTelurMapper;
 import com.hindustries.repository.PelangganRepository;

@@ -2,7 +2,7 @@ package com.hindustries.mapper;
 
 import com.hindustries.dto.request.KaryawanRequest;
 import com.hindustries.dto.response.KaryawanResponse;
-import com.hindustries.entity.Karyawan;
+import com.hindustries.entity.master.Karyawan;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import java.util.List;

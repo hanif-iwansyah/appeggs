@@ -3,7 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.PeternakanRequest;
 import com.hindustries.dto.response.PeternakanResponse;
-import com.hindustries.entity.Peternakan;
+import com.hindustries.entity.master.Peternakan;
 import com.hindustries.mapper.PeternakanMapper;
 import com.hindustries.repository.PeternakanRepository;
 import com.hindustries.util.Constant;

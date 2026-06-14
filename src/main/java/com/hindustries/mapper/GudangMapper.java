@@ -2,7 +2,7 @@ package com.hindustries.mapper;
 
 import com.hindustries.dto.request.GudangRequest;
 import com.hindustries.dto.response.GudangResponse;
-import com.hindustries.entity.Gudang;
+import com.hindustries.entity.master.Gudang;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import java.util.List;

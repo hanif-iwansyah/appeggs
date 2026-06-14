@@ -3,7 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.StokPakanRequest;
 import com.hindustries.dto.response.StokPakanResponse;
-import com.hindustries.entity.Gudang;
+import com.hindustries.entity.master.Gudang;
 import com.hindustries.entity.JenisPakan;
 import com.hindustries.entity.StokPakan;
 import com.hindustries.mapper.StokPakanMapper;

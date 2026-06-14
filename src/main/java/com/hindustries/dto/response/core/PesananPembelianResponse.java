@@ -1,6 +1,6 @@
 package com.hindustries.dto.response.core;
 
-import com.hindustries.entity.Pemasok;
+import com.hindustries.entity.master.Pemasok;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,8 +1,10 @@
 package com.hindustries.entity;
 
+import com.hindustries.entity.master.Kandang;
+import com.hindustries.entity.master.RasAyam;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceLabel;
-import com.hindustries.util.StatusKelompok;
+import com.hindustries.entity.enums.StatusKelompok;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

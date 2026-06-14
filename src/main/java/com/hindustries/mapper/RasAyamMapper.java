@@ -2,7 +2,7 @@ package com.hindustries.mapper;
 
 import com.hindustries.dto.request.RasAyamRequest;
 import com.hindustries.dto.response.RasAyamResponse;
-import com.hindustries.entity.RasAyam;
+import com.hindustries.entity.master.RasAyam;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import java.util.List;

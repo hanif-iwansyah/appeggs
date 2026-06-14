@@ -3,7 +3,7 @@ package com.hindustries.service.core;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.core.PesananPembelianRequest;
 import com.hindustries.dto.response.core.PesananPembelianResponse;
-import com.hindustries.entity.Pemasok;
+import com.hindustries.entity.master.Pemasok;
 import com.hindustries.entity.core.PesananPembelian;
 import com.hindustries.mapper.core.PesananPembelianMapper;
 import com.hindustries.repository.PemasokRepository;

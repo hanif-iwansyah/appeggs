@@ -3,7 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.PeranRequest;
 import com.hindustries.dto.response.PeranResponse;
-import com.hindustries.entity.Peran;
+import com.hindustries.entity.master.Peran;
 import com.hindustries.mapper.PeranMapper;
 import com.hindustries.repository.PeranRepository;
 import com.hindustries.util.Constant;

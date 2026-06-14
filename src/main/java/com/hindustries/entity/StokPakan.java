@@ -1,5 +1,6 @@
 package com.hindustries.entity;
 
+import com.hindustries.entity.master.Gudang;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceLabel;
 import jakarta.persistence.*;

@@ -1,7 +1,7 @@
 package com.hindustries.entity.core;
 
 import com.hindustries.entity.KelompokAyam;
-import com.hindustries.util.AlasanAfkir;
+import com.hindustries.entity.enums.AlasanAfkir;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceLabel;
 import jakarta.persistence.*;
@@ -17,7 +17,8 @@ import java.time.LocalDate;
 public class PengakiranAyam {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne @JoinColumn(name = "kelompok_ayam_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "kelompok_ayam_id", nullable = false)
     private KelompokAyam kelompokAyam;
     @Column(name = "tanggal_afkir")
     private LocalDate tanggalAfkir;

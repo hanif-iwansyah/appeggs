@@ -3,7 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.PelangganRequest;
 import com.hindustries.dto.response.PelangganResponse;
-import com.hindustries.entity.Pelanggan;
+import com.hindustries.entity.master.Pelanggan;
 import com.hindustries.mapper.PelangganMapper;
 import com.hindustries.repository.PelangganRepository;
 import com.hindustries.util.Constant;

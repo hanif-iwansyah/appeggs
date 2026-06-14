@@ -3,7 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.GudangRequest;
 import com.hindustries.dto.response.GudangResponse;
-import com.hindustries.entity.Gudang;
+import com.hindustries.entity.master.Gudang;
 import com.hindustries.mapper.GudangMapper;
 import com.hindustries.repository.GudangRepository;
 import com.hindustries.util.Constant;

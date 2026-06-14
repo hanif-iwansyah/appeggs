@@ -1,6 +1,6 @@
 package com.hindustries.entity.core;
 
-import com.hindustries.entity.Pemasok;
+import com.hindustries.entity.master.Pemasok;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceLabel;
 import jakarta.persistence.*;

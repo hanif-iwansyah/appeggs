@@ -4,7 +4,7 @@ import com.hindustries.base.BaseService;
 
 import com.hindustries.dto.request.core.PembelianPakanRequest;
 import com.hindustries.dto.response.core.PembelianPakanResponse;
-import com.hindustries.entity.Pemasok;
+import com.hindustries.entity.master.Pemasok;
 import com.hindustries.entity.core.PembelianPakan;
 import com.hindustries.mapper.core.PembelianPakanMapper;
 import com.hindustries.repository.PemasokRepository;

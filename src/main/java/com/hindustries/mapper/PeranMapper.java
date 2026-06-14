@@ -2,7 +2,7 @@ package com.hindustries.mapper;
 
 import com.hindustries.dto.request.PeranRequest;
 import com.hindustries.dto.response.PeranResponse;
-import com.hindustries.entity.Peran;
+import com.hindustries.entity.master.Peran;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import java.util.List;

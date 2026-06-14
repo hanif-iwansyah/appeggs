@@ -3,7 +3,7 @@ package com.hindustries.service;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.PemasokRequest;
 import com.hindustries.dto.response.PemasokResponse;
-import com.hindustries.entity.Pemasok;
+import com.hindustries.entity.master.Pemasok;
 import com.hindustries.mapper.PemasokMapper;
 import com.hindustries.repository.PemasokRepository;
 import com.hindustries.util.Constant;
