@@ -8,16 +8,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class BaseServiceImpl<Entity, Req, Res, ID> implements BaseService<Req, Res, ID> {
+
     protected abstract JpaRepository<Entity, ID> getRepository();
     protected abstract Res mapToResponse(Entity entity);
     protected abstract Entity mapToEntity(Req request);
     protected abstract void updateEntityFromReq(Req request, Entity entity);
+    private final String resourceLabel;
 
     protected void beforeCreate(Req req, Entity entity) {}
     protected void afterCreate(Req req, Entity entity) {}
     protected void beforeUpdate(Req req, Entity entity) {}
-
-    private final String resourceLabel;
+    protected void afterUpdate(Req req, Entity entity) {}
 
     protected BaseServiceImpl(Class<Entity> entityClass) {
         if (entityClass.isAnnotationPresent(ResourceLabel.class)){
@@ -41,9 +42,10 @@ public abstract class BaseServiceImpl<Entity, Req, Res, ID> implements BaseServi
     public Res update(ID id, Req request) {
         Entity entity = getRepository().findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(this.resourceLabel, id));
-        updateEntityFromReq(request, entity);
         beforeUpdate(request, entity);
+        updateEntityFromReq(request, entity);
         Entity updated = getRepository().save(entity);
+        afterUpdate(request, updated);
         return mapToResponse(updated);
     }
 
