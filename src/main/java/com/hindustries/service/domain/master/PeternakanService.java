@@ -1,4 +1,4 @@
-package com.hindustries.service.domain_master_data;
+package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
 import com.hindustries.dto.request.master.PeternakanRequest;

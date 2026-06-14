@@ -4,7 +4,7 @@ import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.system.KaryawanRequest;
 import com.hindustries.dto.response.system.KaryawanResponse;
-import com.hindustries.service.domain_master_data.KaryawanService;
+import com.hindustries.service.domain.master.KaryawanService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

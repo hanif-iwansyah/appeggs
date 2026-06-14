@@ -3,9 +3,7 @@ package com.hindustries.util;
 public final class Constant {
 
 
-    private Constant() {
-        // prevent instantiation
-    }
+    private Constant() {}
 
     public static final String GUDANG = "Data gudang";
     public static final String JADWAL_VAKSIN = "Data jadwal vaksin";
@@ -42,4 +40,6 @@ public final class Constant {
     public static final String LAPORAN_HARIAN = "Data laporan harian";
     public static final String LAPORAN_BULANAN = "Data laporan bulanan";
     public static final String PENGAKIRAN_AYAM = "Data pengakiran ayam";
+    public static final String SUCCESS_DELETE = "Succesfully delete data.";
+
 }

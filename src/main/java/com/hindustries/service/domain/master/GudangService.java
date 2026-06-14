@@ -1,17 +1,13 @@
-package com.hindustries.service.domain_master_data;
+package com.hindustries.service.domain.master;
 
-import com.hindustries.base.BaseService;
 import com.hindustries.base.BaseServiceImpl;
 import com.hindustries.dto.request.inventory.GudangRequest;
 import com.hindustries.dto.response.inventory.GudangResponse;
 import com.hindustries.entity.inventory.Gudang;
 import com.hindustries.mapper.inventory.GudangMapper;
 import com.hindustries.repository.inventory.GudangRepository;
-import com.hindustries.util.Constant;
-import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @Service
 public class GudangService extends BaseServiceImpl<Gudang, GudangRequest, GudangResponse, Long> {

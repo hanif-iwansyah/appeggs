@@ -4,7 +4,7 @@ import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.master.PemasokRequest;
 import com.hindustries.dto.response.master.PemasokResponse;
-import com.hindustries.service.domain_master_data.PemasokService;
+import com.hindustries.service.domain.master.PemasokService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

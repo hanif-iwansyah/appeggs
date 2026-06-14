@@ -31,9 +31,9 @@ public class KelompokAyam {
     private Date tanggalMulai;
     @Column(name = "populasi_awal")
     private int populasiAwal;
-    @OneToMany(mappedBy = "kelompokAyam", cascade = CascadeType.ALL)
-    private List<ProduksiTelur> produksiTelurList;
     @Enumerated(EnumType.STRING)
     @Column(name = "status_kelompok")
     private StatusKelompok statusKelompok = StatusKelompok.AKTIF;
+    @OneToMany(mappedBy = "kelompokAyam", cascade = CascadeType.ALL)
+    private List<ProduksiTelur> produksiTelurList;
 }

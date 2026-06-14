@@ -1,13 +1,10 @@
-package com.hindustries.service.domain_master_data;
+package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
 import com.hindustries.dto.request.master.KandangRequest;
-import com.hindustries.dto.request.system.PenggunaRequest;
 import com.hindustries.dto.response.master.KandangResponse;
 import com.hindustries.entity.master.Kandang;
 import com.hindustries.entity.master.Peternakan;
-import com.hindustries.entity.system.Pengguna;
-import com.hindustries.entity.system.Peran;
 import com.hindustries.mapper.master.KandangMapper;
 import com.hindustries.mapper.master.PeternakanMapper;
 import com.hindustries.repository.master.KandangRepository;

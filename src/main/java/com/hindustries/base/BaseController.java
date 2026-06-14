@@ -1,6 +1,7 @@
 package com.hindustries.base;
 
 import com.hindustries.util.ApiResponse;
+import com.hindustries.util.Constant;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,6 @@ public abstract class BaseController<Req, Res, ID> {
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Object>> delete(@PathVariable ID id) {
         getService().delete(id);
-        return ResponseEntity.ok(ApiResponse.success(null));
+        return ResponseEntity.ok(ApiResponse.success(Constant.SUCCESS_DELETE));
     }
 }
