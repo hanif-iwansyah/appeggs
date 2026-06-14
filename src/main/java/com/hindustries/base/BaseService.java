@@ -10,7 +10,4 @@ public interface BaseService<Req, Res, ID> {
     List<Res> findAll();
     Res findById(ID id);
     void delete(ID id);
-    default List<Res> createBatch(List<Req> request) {
-        throw new UnsupportedOperationException("Batch create not supported");
-    }
 }

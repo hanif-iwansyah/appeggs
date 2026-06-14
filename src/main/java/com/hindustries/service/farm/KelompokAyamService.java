@@ -1,0 +1,98 @@
+package com.hindustries.service.farm;
+
+import com.hindustries.base.BaseService;
+import com.hindustries.dto.request.farm.KelompokAyamRequest;
+import com.hindustries.dto.response.farm.KelompokAyamResponse;
+import com.hindustries.dto.response.farm.KelompokAyamRingkasanResponse;
+import com.hindustries.entity.master.Kandang;
+import com.hindustries.entity.farm.KelompokAyam;
+import com.hindustries.entity.master.RasAyam;
+import com.hindustries.mapper.farm.KelompokAyamMapper;
+import com.hindustries.repository.master.KandangRepository;
+import com.hindustries.repository.farm.KelompokAyamRepository;
+import com.hindustries.repository.master.RasAyamRepository;
+import com.hindustries.util.Constant;
+import com.hindustries.util.ResourceNotFoundException;
+import org.springframework.stereotype.Service;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
+
+@Service
+public class KelompokAyamService implements BaseService<KelompokAyamRequest, KelompokAyamResponse, Long> {
+
+    private final KelompokAyamRepository repository;
+    private final KandangRepository kandangRepository;
+    private final RasAyamRepository rasAyamRepository;
+    private final KelompokAyamMapper mapper;
+
+    public KelompokAyamService(KelompokAyamRepository repository, KandangRepository kandangRepository, RasAyamRepository rasAyamRepository, KelompokAyamMapper mapper) {
+        this.repository = repository;
+        this.kandangRepository = kandangRepository;
+        this.rasAyamRepository = rasAyamRepository;
+        this.mapper = mapper;
+    }
+
+    @Override
+    public KelompokAyamResponse create(KelompokAyamRequest request) {
+        Kandang kandang = kandangRepository.findById(request.getKandangId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KANDANG, request.getKandangId()));
+        RasAyam rasAyam = rasAyamRepository.findById(request.getRasId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.RAS_AYAM, request.getRasId()));
+        KelompokAyam entity = mapper.toEntity(request);
+        entity.setKandang(kandang);
+        entity.setRas(rasAyam);
+        return mapper.toResponse(repository.save(entity));
+    }
+
+    @Override
+    public KelompokAyamResponse update(Long id, KelompokAyamRequest request) {
+        Kandang kandang = kandangRepository.findById(request.getKandangId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KANDANG, request.getKandangId()));
+        RasAyam rasAyam = rasAyamRepository.findById(request.getRasId())
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.RAS_AYAM, request.getRasId()));
+        KelompokAyam entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KELOMPOK_AYAM, id));
+        mapper.updateEntityFromRequest(request, entity);
+        entity.setKandang(kandang);
+        entity.setRas(rasAyam);
+        return mapper.toResponse(repository.save(entity));
+    }
+
+    @Override
+    public List<KelompokAyamResponse> findAll() {
+        List<KelompokAyam> lsEntity = repository.findAll();
+        return mapper.toResponse(lsEntity);
+    }
+
+    @Override
+    public KelompokAyamResponse findById(Long id) {
+        KelompokAyam entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KELOMPOK_AYAM, id));
+        return mapper.toResponse(entity);
+    }
+
+    @Override
+    public void delete(Long id) {
+        repository.delete(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KELOMPOK_AYAM, id)));
+    }
+
+    public KelompokAyamRingkasanResponse findRingkasan(Long id) {
+        KelompokAyam k = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.KELOMPOK_AYAM, id));
+        Integer aktual = repository.findPopulasiAktual(id);
+        long umur = ChronoUnit.DAYS.between(k.getTanggalMulai().toInstant().atZone(ZoneId.systemDefault())
+                .toLocalDate(), LocalDate.now());
+        KelompokAyamRingkasanResponse result = new KelompokAyamRingkasanResponse();
+        result.setId(k.getId());
+        result.setNamaKelompok(k.getNamaKelompok());
+        result.setStatusKelompok(String.valueOf(k.getStatusKelompok() == null ? "BELUM_ADA_STATUS" : k.getStatusKelompok()));
+        result.setPopulasiAwal(k.getPopulasiAwal());
+        result.setPopulasiAktual(aktual);
+        result.setUmurHari(umur);
+        return result;
+    }
+
+}
