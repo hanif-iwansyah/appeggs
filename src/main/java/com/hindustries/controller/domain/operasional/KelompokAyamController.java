@@ -1,4 +1,4 @@
-package com.hindustries.controller.domain_operasional_peternakan;
+package com.hindustries.controller.domain.operasional;
 
 import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
@@ -29,13 +29,19 @@ public class KelompokAyamController extends BaseController<KelompokAyamRequest, 
         return ResponseEntity.ok(ApiResponse.success(service.aktivasiKelompok(id)));
     }
 
-    @PostMapping("/{id}/nonaktivasi-kelompok")
-    public ResponseEntity<ApiResponse<KelompokAyamResponse>> nonaktivasiKelompok(@PathVariable Long id) {
-        return ResponseEntity.ok(ApiResponse.success(service.nonaktivasiKelompok(id)));
+    @PostMapping("/{id}/selesaikan-kelompok")
+    public ResponseEntity<ApiResponse<KelompokAyamResponse>> selesaikanKelompok(@PathVariable Long id) {
+        return ResponseEntity.ok(ApiResponse.success(service.selesaikanKelompok(id)));
     }
 
-    @GetMapping("/{id}/ringkasan")
-    public ResponseEntity<ApiResponse<KelompokAyamRingkasanResponse>> getRingkasan(@PathVariable Long id) {
-        return ResponseEntity.ok(ApiResponse.success(service.getRingkasan(id)));
+    @GetMapping("/{id}/lihat-ringkasan-kelompok")
+    public ResponseEntity<ApiResponse<KelompokAyamRingkasanResponse>> lihatRingkasanKelompok(@PathVariable Long id) {
+        return ResponseEntity.ok(ApiResponse.success(service.lihatRingkasanKelompok(id)));
+    }
+
+
+    @GetMapping("/{id}/lihat-riwayat-pengakiran-kelompok")
+    public ResponseEntity<ApiResponse<KelompokAyamRingkasanResponse>> lihatRiwayatPengakiranKelompok(@PathVariable Long id) {
+        return ResponseEntity.ok(ApiResponse.success(service.lihatRingkasanKelompok(id)));
     }
 }

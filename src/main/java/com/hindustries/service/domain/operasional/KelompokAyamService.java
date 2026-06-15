@@ -88,7 +88,7 @@ public class KelompokAyamService extends BaseServiceImpl<KelompokAyam, KelompokA
         return mapper.toResponse(saved);
     }
 
-    public KelompokAyamResponse nonaktivasiKelompok(Long id) {
+    public KelompokAyamResponse selesaikanKelompok(Long id) {
         KelompokAyam entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Constant.KELOMPOK_AYAM, id));
         entity.setStatusKelompok(StatusKelompok.SELESAI);
@@ -96,7 +96,7 @@ public class KelompokAyamService extends BaseServiceImpl<KelompokAyam, KelompokA
         return mapper.toResponse(saved);
     }
 
-    public KelompokAyamRingkasanResponse getRingkasan (Long id) {
+    public KelompokAyamRingkasanResponse lihatRingkasanKelompok(Long id) {
         KelompokAyam kelompokAyam = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Constant.KELOMPOK_AYAM, id));
         Integer aktual = repository.findPopulasiAktual(id);

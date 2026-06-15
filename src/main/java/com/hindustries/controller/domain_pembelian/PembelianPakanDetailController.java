@@ -4,9 +4,7 @@ import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.commerce.PembelianPakanDetailRequest;
 import com.hindustries.dto.response.commerce.PembelianPakanDetailResponse;
-import com.hindustries.service.commerce.PembelianPakanDetailService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hindustries.service.domain.pembelian.PembelianPakanDetailService;
 
 /*@RestController
 @RequestMapping("/api/pembelian-pakan-detail")*/

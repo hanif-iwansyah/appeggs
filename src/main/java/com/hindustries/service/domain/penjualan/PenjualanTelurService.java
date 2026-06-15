@@ -1,4 +1,4 @@
-package com.hindustries.service.commerce;
+package com.hindustries.service.domain.penjualan;
 
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.commerce.PenjualanTelurRequest;

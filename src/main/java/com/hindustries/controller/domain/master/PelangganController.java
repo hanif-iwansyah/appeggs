@@ -1,4 +1,4 @@
-package com.hindustries.controller.domain_master_data;
+package com.hindustries.controller.domain.master;
 
 import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;

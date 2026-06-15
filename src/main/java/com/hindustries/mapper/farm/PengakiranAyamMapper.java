@@ -2,6 +2,7 @@ package com.hindustries.mapper.farm;
 
 import com.hindustries.dto.request.commerce.PengakiranAyamRequest;
 import com.hindustries.dto.response.farm.PengakiranAyamResponse;
+import com.hindustries.dto.response.farm.PengakiranRingkasanResponse;
 import com.hindustries.entity.farm.PengakiranAyam;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

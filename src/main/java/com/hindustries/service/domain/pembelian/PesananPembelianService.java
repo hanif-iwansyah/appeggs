@@ -1,4 +1,4 @@
-package com.hindustries.service.commerce;
+package com.hindustries.service.domain.pembelian;
 
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.commerce.PesananPembelianRequest;

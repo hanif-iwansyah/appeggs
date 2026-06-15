@@ -4,9 +4,7 @@ import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.commerce.PesananPenjualanRequest;
 import com.hindustries.dto.response.commerce.PesananPenjualanResponse;
-import com.hindustries.service.commerce.PesananPenjualanService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hindustries.service.domain.penjualan.PesananPenjualanService;
 
 /*@RestController
 @RequestMapping("/api/pesanan-penjualan")*/

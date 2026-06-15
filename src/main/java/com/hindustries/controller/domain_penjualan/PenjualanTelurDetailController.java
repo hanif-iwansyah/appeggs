@@ -4,9 +4,7 @@ import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.commerce.PenjualanTelurDetailRequest;
 import com.hindustries.dto.response.commerce.PenjualanTelurDetailResponse;
-import com.hindustries.service.commerce.PenjualanTelurDetailService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hindustries.service.domain.penjualan.PenjualanTelurDetailService;
 
 //@RestController
 //@RequestMapping("/api/penjualan-telur-detail")
