@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/pelanggan")
 public class PelangganController extends BaseController<PelangganRequest, PelangganResponse, Long> {
     private final PelangganService service;
-    public PelangganController(PelangganService service) {
-        this.service = service;
-    }
+    public PelangganController(PelangganService service) { this.service = service; }
     @Override
     protected BaseService<PelangganRequest, PelangganResponse, Long> getService() {
         return service;

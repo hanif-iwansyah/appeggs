@@ -16,13 +16,16 @@ public class TransaksiInventaris {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "barang_inventaris_id", nullable = false)
     private BarangInventaris barangInventaris;
-    @Column(name = "jenis_transaksi")
-    private String jenisTransaksi;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "jenis_transaksi", nullable = false, length = 20)
+    private JenisTransaksiInventaris jenisTransaksi;
     @Column(name = "jumlah")
     private Integer jumlah;
     @Column(name = "tanggal_transaksi")
     private LocalDate tanggalTransaksi;
+    @Column(name = "keterangan")
+    private String keterangan;
 }

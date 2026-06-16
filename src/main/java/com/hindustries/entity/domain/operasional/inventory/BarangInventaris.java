@@ -19,4 +19,6 @@ public class BarangInventaris {
     private String namaBarang;
     @Column(name = "kategori")
     private String kategori;
+    @Column(name = "stok_awal")
+    private Integer stokAwal;
 }
