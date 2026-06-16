@@ -5,7 +5,7 @@ import com.hindustries.dto.request.system.PeranRequest;
 import com.hindustries.dto.response.system.PeranResponse;
 import com.hindustries.entity.system.Peran;
 import com.hindustries.mapper.system.PeranMapper;
-import com.hindustries.repository.system.PeranRepository;
+import com.hindustries.repository.PeranRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

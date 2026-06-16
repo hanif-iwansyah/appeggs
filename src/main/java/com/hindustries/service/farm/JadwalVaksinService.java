@@ -5,7 +5,7 @@ import com.hindustries.dto.request.farm.JadwalVaksinRequest;
 import com.hindustries.dto.response.farm.JadwalVaksinResponse;
 import com.hindustries.entity.farm.JadwalVaksin;
 import com.hindustries.mapper.farm.JadwalVaksinMapper;
-import com.hindustries.repository.farm.JadwalVaksinRepository;
+import com.hindustries.repository.JadwalVaksinRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;

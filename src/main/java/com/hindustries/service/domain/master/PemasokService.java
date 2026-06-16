@@ -5,7 +5,7 @@ import com.hindustries.dto.request.master.PemasokRequest;
 import com.hindustries.dto.response.master.PemasokResponse;
 import com.hindustries.entity.master.Pemasok;
 import com.hindustries.mapper.master.PemasokMapper;
-import com.hindustries.repository.master.PemasokRepository;
+import com.hindustries.repository.PemasokRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

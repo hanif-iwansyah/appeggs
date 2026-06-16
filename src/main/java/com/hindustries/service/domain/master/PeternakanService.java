@@ -5,7 +5,7 @@ import com.hindustries.dto.request.master.PeternakanRequest;
 import com.hindustries.dto.response.master.PeternakanResponse;
 import com.hindustries.entity.master.Peternakan;
 import com.hindustries.mapper.master.PeternakanMapper;
-import com.hindustries.repository.master.PeternakanRepository;
+import com.hindustries.repository.PeternakanRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

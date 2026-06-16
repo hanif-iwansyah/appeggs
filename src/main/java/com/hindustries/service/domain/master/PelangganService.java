@@ -5,7 +5,7 @@ import com.hindustries.dto.request.master.PelangganRequest;
 import com.hindustries.dto.response.master.PelangganResponse;
 import com.hindustries.entity.master.Pelanggan;
 import com.hindustries.mapper.master.PelangganMapper;
-import com.hindustries.repository.master.PelangganRepository;
+import com.hindustries.repository.PelangganRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

@@ -5,7 +5,7 @@ import com.hindustries.dto.request.inventory.StokObatRequest;
 import com.hindustries.dto.response.inventory.StokObatResponse;
 import com.hindustries.entity.inventory.StokObat;
 import com.hindustries.mapper.inventory.StokObatMapper;
-import com.hindustries.repository.inventory.StokObatRepository;
+import com.hindustries.repository.StokObatRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;

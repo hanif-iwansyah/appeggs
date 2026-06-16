@@ -5,7 +5,7 @@ import com.hindustries.dto.request.inventory.GudangRequest;
 import com.hindustries.dto.response.inventory.GudangResponse;
 import com.hindustries.entity.inventory.Gudang;
 import com.hindustries.mapper.inventory.GudangMapper;
-import com.hindustries.repository.inventory.GudangRepository;
+import com.hindustries.repository.GudangRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

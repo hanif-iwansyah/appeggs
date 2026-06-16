@@ -1,6 +1,7 @@
 package com.hindustries.dto.request.farm;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,4 +16,6 @@ public class GradingTelurRequest {
     private int gradeB;
     @NotBlank
     private int gradeC;
+    @NotNull(message = "gudangId is required")
+    private Long gudangId;
 }

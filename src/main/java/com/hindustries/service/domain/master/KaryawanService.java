@@ -5,7 +5,7 @@ import com.hindustries.dto.request.system.KaryawanRequest;
 import com.hindustries.dto.response.system.KaryawanResponse;
 import com.hindustries.entity.system.Karyawan;
 import com.hindustries.mapper.system.KaryawanMapper;
-import com.hindustries.repository.system.KaryawanRepository;
+import com.hindustries.repository.KaryawanRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

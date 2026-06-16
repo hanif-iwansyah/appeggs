@@ -5,7 +5,7 @@ import com.hindustries.dto.request.master.JenisPakanRequest;
 import com.hindustries.dto.response.master.JenisPakanResponse;
 import com.hindustries.entity.master.JenisPakan;
 import com.hindustries.mapper.master.JenisPakanMapper;
-import com.hindustries.repository.master.JenisPakanRepository;
+import com.hindustries.repository.JenisPakanRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

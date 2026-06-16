@@ -4,9 +4,7 @@ import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.system.LaporanBulananRequest;
 import com.hindustries.dto.response.system.LaporanBulananResponse;
-import com.hindustries.service.system.LaporanBulananService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hindustries.service.domain.laporan.LaporanBulananService;
 
 //@RestController
 //@RequestMapping("/api/laporan-bulanan")

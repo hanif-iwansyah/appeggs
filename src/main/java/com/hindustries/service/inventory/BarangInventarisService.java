@@ -5,7 +5,7 @@ import com.hindustries.dto.request.inventory.BarangInventarisRequest;
 import com.hindustries.dto.response.inventory.BarangInventarisResponse;
 import com.hindustries.entity.inventory.BarangInventaris;
 import com.hindustries.mapper.inventory.BarangInventarisMapper;
-import com.hindustries.repository.inventory.BarangInventarisRepository;
+import com.hindustries.repository.BarangInventarisRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;

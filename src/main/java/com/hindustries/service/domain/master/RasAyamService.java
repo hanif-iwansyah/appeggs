@@ -5,7 +5,7 @@ import com.hindustries.dto.request.master.RasAyamRequest;
 import com.hindustries.dto.response.master.RasAyamResponse;
 import com.hindustries.entity.master.RasAyam;
 import com.hindustries.mapper.master.RasAyamMapper;
-import com.hindustries.repository.master.RasAyamRepository;
+import com.hindustries.repository.RasAyamRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

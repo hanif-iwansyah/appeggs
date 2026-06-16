@@ -1,12 +1,15 @@
 package com.hindustries.controller.domain.operasional;
 
 import com.hindustries.dto.request.farm.ProduksiRequest;
+import com.hindustries.dto.response.domain.operasional.HdpResponse;
+import com.hindustries.dto.response.domain.operasional.ProduksiTelurSummaryResponse;
 import com.hindustries.dto.response.farm.ProduksiBulananResponse;
 import com.hindustries.dto.response.farm.ProduksiHarianResponse;
 import com.hindustries.dto.response.farm.ProduksiResponse;
 import com.hindustries.service.domain.operasional.ProduksiService;
 import com.hindustries.util.ApiResponse;
 import jakarta.validation.Valid;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
@@ -15,7 +18,6 @@ import java.time.LocalDate;
 @RequestMapping("/api/produksi")
 public class ProduksiController {
     private final ProduksiService service;
-
     public ProduksiController(ProduksiService service) {
         this.service = service;
     }
@@ -34,4 +36,21 @@ public class ProduksiController {
     public ResponseEntity<ApiResponse<ProduksiBulananResponse>> lihatProduksiBulanan(Integer bulan, Integer tahun) {
         return ResponseEntity.ok(ApiResponse.success(service.lihatProduksiBulanan(bulan, tahun)));
     }
+
+    @GetMapping("/hdp")
+    public ResponseEntity<ApiResponse<HdpResponse>> getHdp(
+            @RequestParam Long kelompokAyamId,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dari,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate sampai) {
+        return ResponseEntity.ok(ApiResponse.success(service.hitungHDP(kelompokAyamId, dari, sampai)));
+    }
+
+    @GetMapping("/summary")
+    public ResponseEntity<ApiResponse<ProduksiTelurSummaryResponse>> lihatSummaryProduksi(
+            @RequestParam Long kelompokAyamId,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dari,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate sampai) {
+        return ResponseEntity.ok(ApiResponse.success(service.getSummary(kelompokAyamId, dari, sampai)));
+    }
+
 }

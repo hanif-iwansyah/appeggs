@@ -4,9 +4,7 @@ import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
 import com.hindustries.dto.request.commerce.PembayaranRequest;
 import com.hindustries.dto.response.commerce.PembayaranResponse;
-import com.hindustries.service.commerce.PembayaranService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hindustries.service.domain.pembelian.PembayaranService;
 
 /*@RestController
 @RequestMapping("/api/pembayaran")*/
