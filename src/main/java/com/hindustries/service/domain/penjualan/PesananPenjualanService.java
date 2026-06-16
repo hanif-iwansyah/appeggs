@@ -1,13 +1,13 @@
 package com.hindustries.service.domain.penjualan;
 
 import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.commerce.PesananPenjualanRequest;
-import com.hindustries.dto.response.commerce.PesananPenjualanResponse;
-import com.hindustries.entity.master.Pelanggan;
-import com.hindustries.entity.commerce.PesananPenjualan;
-import com.hindustries.mapper.commerce.PesananPenjualanMapper;
-import com.hindustries.repository.PelangganRepository;
-import com.hindustries.repository.PesananPenjualanRepository;
+import com.hindustries.dto.request.domain.penjualan.PesananPenjualanRequest;
+import com.hindustries.dto.response.domain.penjualan.PesananPenjualanResponse;
+import com.hindustries.entity.domain.master.Pelanggan;
+import com.hindustries.entity.domain.penjualan.PesananPenjualan;
+import com.hindustries.mapper.domain.penjualan.PesananPenjualanMapper;
+import com.hindustries.repository.domain.master.PelangganRepository;
+import com.hindustries.repository.domain.penjualan.PesananPenjualanRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;

@@ -2,8 +2,8 @@ package com.hindustries.controller.domain.master;
 
 import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.master.PeternakanRequest;
-import com.hindustries.dto.response.master.PeternakanResponse;
+import com.hindustries.dto.request.domain.master.PeternakanRequest;
+import com.hindustries.dto.response.domain.master.PeternakanResponse;
 import com.hindustries.service.domain.master.PeternakanService;
 import org.springframework.web.bind.annotation.*;
 

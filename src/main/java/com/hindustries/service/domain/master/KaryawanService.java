@@ -1,11 +1,11 @@
 package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
-import com.hindustries.dto.request.system.KaryawanRequest;
-import com.hindustries.dto.response.system.KaryawanResponse;
-import com.hindustries.entity.system.Karyawan;
-import com.hindustries.mapper.system.KaryawanMapper;
-import com.hindustries.repository.KaryawanRepository;
+import com.hindustries.dto.request.domain.master.KaryawanRequest;
+import com.hindustries.dto.response.domain.master.KaryawanResponse;
+import com.hindustries.entity.domain.master.Karyawan;
+import com.hindustries.mapper.domain.master.KaryawanMapper;
+import com.hindustries.repository.domain.master.KaryawanRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

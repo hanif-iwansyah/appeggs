@@ -1,6 +1,0 @@
-package com.hindustries.repository;
-
-import com.hindustries.entity.commerce.PenjualanTelurDetail;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface PenjualanTelurDetailRepository extends JpaRepository<PenjualanTelurDetail, Long> { }

@@ -2,8 +2,8 @@ package com.hindustries.controller.domain.master;
 
 import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.system.PeranRequest;
-import com.hindustries.dto.response.system.PeranResponse;
+import com.hindustries.dto.request.domain.master.PeranRequest;
+import com.hindustries.dto.response.domain.master.PeranResponse;
 import com.hindustries.service.domain.master.PeranService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

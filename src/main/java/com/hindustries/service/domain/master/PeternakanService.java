@@ -1,11 +1,11 @@
 package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
-import com.hindustries.dto.request.master.PeternakanRequest;
-import com.hindustries.dto.response.master.PeternakanResponse;
-import com.hindustries.entity.master.Peternakan;
-import com.hindustries.mapper.master.PeternakanMapper;
-import com.hindustries.repository.PeternakanRepository;
+import com.hindustries.dto.request.domain.master.PeternakanRequest;
+import com.hindustries.dto.response.domain.master.PeternakanResponse;
+import com.hindustries.entity.domain.master.Peternakan;
+import com.hindustries.mapper.domain.master.PeternakanMapper;
+import com.hindustries.repository.domain.master.PeternakanRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

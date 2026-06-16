@@ -1,11 +1,11 @@
 package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
-import com.hindustries.dto.request.master.JenisPakanRequest;
-import com.hindustries.dto.response.master.JenisPakanResponse;
-import com.hindustries.entity.master.JenisPakan;
-import com.hindustries.mapper.master.JenisPakanMapper;
-import com.hindustries.repository.JenisPakanRepository;
+import com.hindustries.dto.request.domain.master.JenisPakanRequest;
+import com.hindustries.dto.response.domain.master.JenisPakanResponse;
+import com.hindustries.entity.domain.master.JenisPakan;
+import com.hindustries.mapper.domain.master.JenisPakanMapper;
+import com.hindustries.repository.domain.master.JenisPakanRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

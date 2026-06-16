@@ -2,8 +2,8 @@ package com.hindustries.controller.domain.master;
 
 import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.inventory.GudangRequest;
-import com.hindustries.dto.response.inventory.GudangResponse;
+import com.hindustries.dto.request.domain.master.GudangRequest;
+import com.hindustries.dto.response.domain.master.GudangResponse;
 import com.hindustries.service.domain.master.GudangService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

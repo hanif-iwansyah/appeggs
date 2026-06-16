@@ -1,13 +1,13 @@
 package com.hindustries.service.domain.laporan;
 
 import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.system.LaporanBulananRequest;
-import com.hindustries.dto.response.system.LaporanBulananResponse;
-import com.hindustries.entity.master.Peternakan;
-import com.hindustries.entity.system.LaporanBulanan;
-import com.hindustries.mapper.system.LaporanBulananMapper;
-import com.hindustries.repository.PeternakanRepository;
-import com.hindustries.repository.LaporanBulananRepository;
+import com.hindustries.dto.request.domain.laporan.LaporanBulananRequest;
+import com.hindustries.dto.response.domain.laporan.LaporanBulananResponse;
+import com.hindustries.entity.domain.master.Peternakan;
+import com.hindustries.entity.domain.laporan.LaporanBulanan;
+import com.hindustries.mapper.domain.laporan.LaporanBulananMapper;
+import com.hindustries.repository.domain.master.PeternakanRepository;
+import com.hindustries.repository.domain.laporan.LaporanBulananRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;

@@ -2,8 +2,8 @@ package com.hindustries.controller.domain.master;
 
 import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.master.PemasokRequest;
-import com.hindustries.dto.response.master.PemasokResponse;
+import com.hindustries.dto.request.domain.master.PemasokRequest;
+import com.hindustries.dto.response.domain.master.PemasokResponse;
 import com.hindustries.service.domain.master.PemasokService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

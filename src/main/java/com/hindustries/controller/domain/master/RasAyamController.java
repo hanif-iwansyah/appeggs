@@ -2,8 +2,8 @@ package com.hindustries.controller.domain.master;
 
 import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.master.RasAyamRequest;
-import com.hindustries.dto.response.master.RasAyamResponse;
+import com.hindustries.dto.request.domain.master.RasAyamRequest;
+import com.hindustries.dto.response.domain.master.RasAyamResponse;
 import com.hindustries.service.domain.master.RasAyamService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

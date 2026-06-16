@@ -1,13 +1,13 @@
 package com.hindustries.service.domain.pembelian;
 
 import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.commerce.PembayaranRequest;
-import com.hindustries.dto.response.commerce.PembayaranResponse;
-import com.hindustries.entity.commerce.Pembayaran;
-import com.hindustries.entity.commerce.PesananPenjualan;
-import com.hindustries.mapper.commerce.PembayaranMapper;
-import com.hindustries.repository.PembayaranRepository;
-import com.hindustries.repository.PesananPenjualanRepository;
+import com.hindustries.dto.request.domain.pembelian.PembayaranRequest;
+import com.hindustries.dto.response.domain.pembelian.PembayaranResponse;
+import com.hindustries.entity.domain.pembelian.Pembayaran;
+import com.hindustries.entity.domain.penjualan.PesananPenjualan;
+import com.hindustries.mapper.domain.pembelian.PembayaranMapper;
+import com.hindustries.repository.domain.pembelian.PembayaranRepository;
+import com.hindustries.repository.domain.penjualan.PesananPenjualanRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;

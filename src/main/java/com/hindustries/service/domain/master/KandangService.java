@@ -1,14 +1,14 @@
 package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
-import com.hindustries.dto.request.master.KandangRequest;
-import com.hindustries.dto.response.master.KandangResponse;
-import com.hindustries.entity.master.Kandang;
-import com.hindustries.entity.master.Peternakan;
-import com.hindustries.mapper.master.KandangMapper;
-import com.hindustries.mapper.master.PeternakanMapper;
-import com.hindustries.repository.KandangRepository;
-import com.hindustries.repository.PeternakanRepository;
+import com.hindustries.dto.request.domain.master.KandangRequest;
+import com.hindustries.dto.response.domain.master.KandangResponse;
+import com.hindustries.entity.domain.master.Kandang;
+import com.hindustries.entity.domain.master.Peternakan;
+import com.hindustries.mapper.domain.master.KandangMapper;
+import com.hindustries.mapper.domain.master.PeternakanMapper;
+import com.hindustries.repository.domain.master.KandangRepository;
+import com.hindustries.repository.domain.master.PeternakanRepository;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;

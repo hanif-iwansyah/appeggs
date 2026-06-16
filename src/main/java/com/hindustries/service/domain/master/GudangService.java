@@ -1,11 +1,11 @@
 package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
-import com.hindustries.dto.request.inventory.GudangRequest;
-import com.hindustries.dto.response.inventory.GudangResponse;
-import com.hindustries.entity.inventory.Gudang;
-import com.hindustries.mapper.inventory.GudangMapper;
-import com.hindustries.repository.GudangRepository;
+import com.hindustries.dto.request.domain.master.GudangRequest;
+import com.hindustries.dto.response.domain.master.GudangResponse;
+import com.hindustries.entity.domain.master.Gudang;
+import com.hindustries.mapper.domain.master.GudangMapper;
+import com.hindustries.repository.domain.master.GudangRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

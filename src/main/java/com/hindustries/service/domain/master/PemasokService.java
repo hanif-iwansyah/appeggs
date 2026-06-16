@@ -1,11 +1,11 @@
 package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
-import com.hindustries.dto.request.master.PemasokRequest;
-import com.hindustries.dto.response.master.PemasokResponse;
-import com.hindustries.entity.master.Pemasok;
-import com.hindustries.mapper.master.PemasokMapper;
-import com.hindustries.repository.PemasokRepository;
+import com.hindustries.dto.request.domain.master.PemasokRequest;
+import com.hindustries.dto.response.domain.master.PemasokResponse;
+import com.hindustries.entity.domain.master.Pemasok;
+import com.hindustries.mapper.domain.master.PemasokMapper;
+import com.hindustries.repository.domain.master.PemasokRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

@@ -1,11 +1,11 @@
 package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
-import com.hindustries.dto.request.master.PelangganRequest;
-import com.hindustries.dto.response.master.PelangganResponse;
-import com.hindustries.entity.master.Pelanggan;
-import com.hindustries.mapper.master.PelangganMapper;
-import com.hindustries.repository.PelangganRepository;
+import com.hindustries.dto.request.domain.master.PelangganRequest;
+import com.hindustries.dto.response.domain.master.PelangganResponse;
+import com.hindustries.entity.domain.master.Pelanggan;
+import com.hindustries.mapper.domain.master.PelangganMapper;
+import com.hindustries.repository.domain.master.PelangganRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

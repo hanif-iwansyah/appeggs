@@ -1,11 +1,11 @@
 package com.hindustries.service.domain.master;
 
 import com.hindustries.base.BaseServiceImpl;
-import com.hindustries.dto.request.system.PeranRequest;
-import com.hindustries.dto.response.system.PeranResponse;
-import com.hindustries.entity.system.Peran;
-import com.hindustries.mapper.system.PeranMapper;
-import com.hindustries.repository.PeranRepository;
+import com.hindustries.dto.request.domain.master.PeranRequest;
+import com.hindustries.dto.response.domain.master.PeranResponse;
+import com.hindustries.entity.domain.master.Peran;
+import com.hindustries.mapper.domain.master.PeranMapper;
+import com.hindustries.repository.domain.master.PeranRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
