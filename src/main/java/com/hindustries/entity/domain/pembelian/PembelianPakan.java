@@ -1,6 +1,7 @@
 package com.hindustries.entity.domain.pembelian;
 
 import com.hindustries.entity.domain.master.Pemasok;
+import com.hindustries.entity.domain.operasional.inventory.StatusPembelianPakan;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceLabel;
 import jakarta.persistence.*;
@@ -8,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,4 +27,9 @@ public class PembelianPakan {
     private LocalDate tanggalPembelian;
     @Column(name = "total_biaya")
     private BigDecimal total_biaya;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status_pembelian")
+    private StatusPembelianPakan statusPembelian = StatusPembelianPakan.DRFT;
+    @OneToMany(mappedBy = "pembelianPakan", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<PembelianPakanDetail> details;
 }

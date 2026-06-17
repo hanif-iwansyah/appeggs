@@ -25,4 +25,6 @@ public class PembelianPakanDetail {
     private JenisPakan jenisPakan;
     @Column(name = "jumlah_kg")
     private BigDecimal jumlahKg;
+    @Column(name = "gudang_tujuan_id")
+    private Long gudangTujuanId;
 }

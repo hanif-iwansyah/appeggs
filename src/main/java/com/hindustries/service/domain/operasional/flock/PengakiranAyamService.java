@@ -6,6 +6,7 @@ import com.hindustries.dto.response.domain.operasional.flock.PengakiranKelompokR
 import com.hindustries.dto.response.domain.operasional.flock.PengakiranRingkasanResponse;
 import com.hindustries.entity.domain.operasional.flock.KelompokAyam;
 import com.hindustries.entity.domain.operasional.flock.PengakiranAyam;
+import com.hindustries.entity.domain.operasional.flock.StatusKelompok;
 import com.hindustries.mapper.domain.operasional.flock.PengakiranAyamMapper;
 import com.hindustries.repository.domain.operasional.flock.KelompokAyamRepository;
 import com.hindustries.repository.domain.operasional.flock.PengakiranAyamRepository;
@@ -31,9 +32,18 @@ public class PengakiranAyamService {
     public PengakiranAyamResponse catatPengakiranAyam(PengakiranAyamRequest request) {
         KelompokAyam kelompokAyam = kelompokAyamRepository.findById(request.getKelompokAyamId())
                 .orElseThrow(() -> new ResourceNotFoundException(Constant.KELOMPOK_AYAM, request.getKelompokAyamId()));
+        if (kelompokAyam.getStatusKelompok() == StatusKelompok.SELESAI) {
+            throw new IllegalStateException(
+                    "Kelompok " + kelompokAyam.getNamaKelompok() + " sudah berstatus SELESAI");
+        }
         PengakiranAyam entity = mapper.toEntity(request);
         entity.setKelompokAyam(kelompokAyam);
         repository.save(entity);
+        Integer populasiAktual = kelompokAyamRepository.findPopulasiAktual(kelompokAyam.getId());
+        if (populasiAktual != null && populasiAktual <= 0) {
+            kelompokAyam.setStatusKelompok(StatusKelompok.SELESAI);
+            kelompokAyamRepository.save(kelompokAyam);
+        }
         return mapper.toResponse(entity);
     }
 

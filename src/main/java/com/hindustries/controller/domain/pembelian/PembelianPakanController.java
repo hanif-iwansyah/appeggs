@@ -1,21 +1,26 @@
 package com.hindustries.controller.domain.pembelian;
 
-import com.hindustries.base.BaseController;
-import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.domain.pembelian.PembelianPakanRequest;
 import com.hindustries.dto.response.domain.pembelian.PembelianPakanResponse;
 import com.hindustries.service.domain.pembelian.PembelianPakanService;
+import com.hindustries.util.ApiResponse;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-
-/*@RestController
-@RequestMapping("/api/pembelian-pakan")*/
-public class PembelianPakanController extends BaseController<PembelianPakanRequest, PembelianPakanResponse, Long> {
+@RestController
+@RequestMapping("/api/pembelian-pakan")
+public class PembelianPakanController {
     private final PembelianPakanService service;
+
     public PembelianPakanController(PembelianPakanService service) {
         this.service = service;
     }
-    @Override
-    protected BaseService<PembelianPakanRequest, PembelianPakanResponse, Long> getService() {
-        return service;
+
+    @PatchMapping("/{id}/terima")
+    public ResponseEntity<ApiResponse<PembelianPakanResponse>> terimaBarang(@PathVariable Long id) {
+        return ResponseEntity.ok(ApiResponse.success(service.terimaBarang(id)));
     }
+
 }
