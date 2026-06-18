@@ -4,6 +4,7 @@ import com.hindustries.dto.request.domain.penjualan.PesananPenjualanRequest;
 import com.hindustries.dto.response.domain.penjualan.PesananPenjualanResponse;
 import com.hindustries.entity.domain.penjualan.PesananPenjualan;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import java.util.List;
 

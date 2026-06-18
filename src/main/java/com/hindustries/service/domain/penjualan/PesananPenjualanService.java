@@ -5,6 +5,7 @@ import com.hindustries.dto.request.domain.penjualan.PesananPenjualanRequest;
 import com.hindustries.dto.response.domain.penjualan.PesananPenjualanResponse;
 import com.hindustries.entity.domain.master.Pelanggan;
 import com.hindustries.entity.domain.penjualan.PesananPenjualan;
+import com.hindustries.entity.domain.penjualan.StatusPesananPenjualan;
 import com.hindustries.mapper.domain.penjualan.PesananPenjualanMapper;
 import com.hindustries.repository.domain.master.PelangganRepository;
 import com.hindustries.repository.domain.penjualan.PesananPenjualanRepository;
@@ -12,6 +13,10 @@ import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import static com.hindustries.entity.domain.penjualan.StatusPesananPenjualan.*;
 
 @Service
 public class PesananPenjualanService implements BaseService<PesananPenjualanRequest, PesananPenjualanResponse, Long> {
@@ -61,4 +66,28 @@ public class PesananPenjualanService implements BaseService<PesananPenjualanRequ
         repository.delete(repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Constant.PESANAN_PENJUALAN, id)));
     }
+
+    private static final Map<StatusPesananPenjualan, Set<StatusPesananPenjualan>> TRANSITIONS = Map.of(
+            StatusPesananPenjualan.DRAFT, Set.of(DIKONFIRMASI, DIBATALKAN),
+            StatusPesananPenjualan.DIKONFIRMASI, Set.of(DALAM_PROSES, DIBATALKAN),
+            StatusPesananPenjualan.DALAM_PROSES, Set.of(SIAP_KIRIM),
+            StatusPesananPenjualan.SIAP_KIRIM, Set.of(DIKIRIM),
+            StatusPesananPenjualan.DIKIRIM, Set.of(SELESAI)
+    );
+
+    public PesananPenjualanResponse ubahStatus(Long id, StatusPesananPenjualan newStatus) {
+        PesananPenjualan p = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PESANAN_PENJUALAN, id));
+
+
+        Set<StatusPesananPenjualan> allowed = TRANSITIONS
+                .getOrDefault(p.getStatusPesanan(), Set.of());
+
+        if (!allowed.contains(newStatus)) {
+            throw new IllegalStateException("Tidak bisa ubah status dari " + p.getStatusPesanan() + " ke " + newStatus);
+        }
+        p.setStatusPesanan(newStatus);
+        return mapper.toResponse(repository.save(p));
+    }
+
 }

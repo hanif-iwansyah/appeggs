@@ -25,4 +25,7 @@ public class PesananPenjualan {
     private LocalDate tanggalPesanan;
     @Column(name = "total_harga")
     private BigDecimal totalHarga;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status_pesanan")
+    private StatusPesananPenjualan statusPesanan = StatusPesananPenjualan.DRAFT;
 }
