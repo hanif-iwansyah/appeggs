@@ -44,6 +44,13 @@ public final class Constant {
     public static final String TELUR_GRADE  = "Telur grade ";
     public static final String ONLY_ORDER_CONFIRM_OR_ONPROCESS = "Penjualan hanya bisa dibuat untuk pesanan berstatus DIKONFIRMASI/DALAM_PROSES";
     public static final String ZERO_STOCK_IN_WAREHOUSE = "belum terdaftar di gudang ini (Stok: 0)";
-
+    public static final String OBAT = "OBAT";
+    public static final String PAKAN = "PAKAN";
+    public static final String TELUR = "TELUR";
+    public static final String STOCK_NOT_ENOUGH_PATTERN = "Stock %s tidak mencukupi";
+    //public static final String STOCK_IN_SUCCESS = "Stock %s berhasil ditambahkan";
+    //public static final String STOCK_OUT_SUCCESS = "Stock %s berhasil dikurangi";
+    public static final java.util.function.Function<String, String> STOCK_IN_SUCCESS = word -> "Stok " + word + " berhasil ditambahkan";
+    public static final java.util.function.Function<String, String> STOCK_OUT_SUCCESS = word -> "Stok " + word + " berhasil ditambahkan";
 
 }

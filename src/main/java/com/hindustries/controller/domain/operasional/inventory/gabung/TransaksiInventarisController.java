@@ -1,5 +1,5 @@
 
-package com.hindustries.controller.domain.operasional.inventory;
+package com.hindustries.controller.domain.operasional.inventory.gabung;
 
 import com.hindustries.dto.response.domain.operasional.inventory.TransaksiInventarisDetailResponse;
 import com.hindustries.service.domain.operasional.inventory.TransaksiInventarisService;

@@ -1,4 +1,4 @@
-package com.hindustries.controller.domain.operasional.health;
+package com.hindustries.controller.domain.operasional.health.gabung;
 
 import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;

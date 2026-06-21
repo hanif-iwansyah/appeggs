@@ -1,18 +1,16 @@
 package com.hindustries.service.domain.operasional.inventory;
 
-import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.domain.operasional.inventory.StokObatRequest;
-import com.hindustries.dto.response.domain.operasional.inventory.StokObatResponse;
 import com.hindustries.entity.domain.operasional.inventory.StokObat;
 import com.hindustries.mapper.domain.operasional.inventory.StokObatMapper;
 import com.hindustries.repository.domain.operasional.inventory.StokObatRepository;
+import com.hindustries.util.BadRequestException;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
-import org.springframework.stereotype.Service;
-import java.util.List;
+import org.springframework.stereotype.Component;
+import java.math.BigDecimal;
 
-@Service
-public class StokObatService implements BaseService<StokObatRequest, StokObatResponse, Long> {
+@Component
+public class StokObatService implements InventarisStrategy {
 
     private final StokObatRepository repository;
     private final StokObatMapper mapper;
@@ -23,34 +21,27 @@ public class StokObatService implements BaseService<StokObatRequest, StokObatRes
     }
 
     @Override
-    public StokObatResponse create(StokObatRequest request) {
-        StokObat entity = repository.save(mapper.toEntity(request));
-        return mapper.toResponse(entity);
+    public boolean isSupported(String kategori) {
+        return Constant.OBAT.equalsIgnoreCase(kategori);
+
     }
 
     @Override
-    public StokObatResponse update(Long id, StokObatRequest request) {
-        StokObat entity = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_OBAT, id));
-        mapper.updateEntityFromRequest(request, entity);
-        repository.save(entity);
-        return mapper.toResponse(entity);
+    public void prosesMasuk(Long targetId, BigDecimal jumlah, String keterangan) {
+        StokObat obat = repository.findById(targetId)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_OBAT, targetId));
+        obat.setJumlah(obat.getJumlah() + jumlah.intValue());
+        repository.save(obat);
     }
 
     @Override
-    public List<StokObatResponse> findAll() {
-        return mapper.toResponse(repository.findAll());
-    }
-
-    @Override
-    public StokObatResponse findById(Long id) {
-        return mapper.toResponse(repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_OBAT, id)));
-    }
-
-    @Override
-    public void delete(Long id) {
-        repository.delete(repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_OBAT, id)));
+    public void prosesKeluar(Long targetId, BigDecimal jumlah, String keterangan)  {
+        StokObat obat = repository.findById(targetId)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_OBAT, targetId));
+        if (obat.getJumlah() < jumlah.intValue()) {
+            throw new BadRequestException(Constant.STOCK_NOT_ENOUGH_PATTERN, Constant.OBAT);
+        }
+        obat.setJumlah(obat.getJumlah() - jumlah.intValue());
+        repository.save(obat);
     }
 }

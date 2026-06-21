@@ -4,13 +4,17 @@ import com.hindustries.dto.response.domain.operasional.inventory.StokPakanAlertR
 import com.hindustries.entity.domain.operasional.inventory.StokPakan;
 import com.hindustries.mapper.domain.operasional.inventory.StokPakanMapper;
 import com.hindustries.repository.domain.operasional.inventory.StokPakanRepository;
-import org.springframework.stereotype.Service;
+import com.hindustries.util.BadRequestException;
+import com.hindustries.util.Constant;
+import com.hindustries.util.ResourceNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
 import java.util.List;
 
-@Service
-@Transactional
-public class StokPakanService {
+@Component
+public class StokPakanService implements InventarisStrategy {
 
     private final StokPakanRepository repository;
 
@@ -31,9 +35,31 @@ public class StokPakanService {
                     alert.setJumlahKg(stokPakan.getStokMinimumKg());
                     alert.setStokMinimumKg(stokPakan.getStokMinimumKg().subtract(stokPakan.getJumlahKg()));
                     return alert;
-
                 }).toList();
     }
 
 
+    @Override
+    public boolean isSupported(String kategori) {
+        return Constant.PAKAN.equalsIgnoreCase(kategori);
+    }
+
+    @Override
+    public void prosesMasuk(Long targetId, BigDecimal jumlah, String keterangan) {
+        StokPakan pakan = repository.findById(targetId)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_PAKAN, targetId));
+        pakan.setJumlahKg(pakan.getJumlahKg().add(jumlah));
+        repository.save(pakan);
+    }
+
+    @Override
+    public void prosesKeluar(Long targetId, BigDecimal jumlah, String keterangan) {
+        StokPakan pakan = repository.findById(targetId)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.PAKAN, targetId));
+        if (pakan.getJumlahKg().compareTo(jumlah) < 0) {
+            throw new BadRequestException(Constant.STOCK_NOT_ENOUGH_PATTERN, Constant.PAKAN);
+        }
+        pakan.setJumlahKg(pakan.getJumlahKg().subtract(jumlah));
+        repository.save(pakan);
+    }
 }

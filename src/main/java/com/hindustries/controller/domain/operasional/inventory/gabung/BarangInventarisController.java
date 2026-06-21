@@ -1,4 +1,4 @@
-package com.hindustries.controller.domain.operasional.inventory;
+package com.hindustries.controller.domain.operasional.inventory.gabung;
 
 import com.hindustries.base.BaseController;
 import com.hindustries.base.BaseService;

@@ -1,71 +1,49 @@
 package com.hindustries.service.domain.operasional.inventory;
 
-import com.hindustries.base.BaseService;
-import com.hindustries.dto.request.domain.operasional.inventory.StokTelurRequest;
-import com.hindustries.dto.response.domain.operasional.inventory.StokTelurResponse;
-import com.hindustries.entity.domain.master.Gudang;
 import com.hindustries.entity.domain.operasional.inventory.StokTelur;
 import com.hindustries.mapper.domain.operasional.inventory.StokTelurMapper;
 import com.hindustries.repository.domain.master.GudangRepository;
 import com.hindustries.repository.domain.operasional.inventory.StokTelurRepository;
+import com.hindustries.util.BadRequestException;
 import com.hindustries.util.Constant;
 import com.hindustries.util.ResourceNotFoundException;
-import jakarta.transaction.Transactional;
-import org.springframework.stereotype.Service;
-import java.util.List;
+import org.springframework.stereotype.Component;
+import java.math.BigDecimal;
 
-@Service
-public class StokTelurService implements BaseService<StokTelurRequest, StokTelurResponse, Long> {
+@Component
+public class StokTelurService implements InventarisStrategy {
 
-    private final StokTelurRepository stokTelurRepository;
+    private final StokTelurRepository repository;
     private final GudangRepository gudangRepository;
     private final StokTelurMapper stokTelurMapper;
 
-    public StokTelurService(StokTelurRepository stokTelurRepository, GudangRepository gudangRepository, StokTelurMapper stokTelurMapper) {
-        this.stokTelurRepository = stokTelurRepository;
+    public StokTelurService(StokTelurRepository repository, GudangRepository gudangRepository, StokTelurMapper stokTelurMapper) {
+        this.repository = repository;
         this.gudangRepository = gudangRepository;
         this.stokTelurMapper = stokTelurMapper;
     }
 
     @Override
-    public StokTelurResponse create(StokTelurRequest request) {
-        Gudang gudang = gudangRepository.findById(request.getGudangId())
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, request.getGudangId()));
-        StokTelur entity = stokTelurMapper.toEntity(request);
-        entity.setGudang(gudang);
-        return stokTelurMapper.toResponse(stokTelurRepository.save(entity));
+    public boolean isSupported(String kategori) {
+        return Constant.TELUR.equalsIgnoreCase(kategori);
     }
 
     @Override
-    public StokTelurResponse update(Long id, StokTelurRequest request) {
-        StokTelur entity = stokTelurRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_TELUR, id));
-        Gudang gudang = gudangRepository.findById(request.getGudangId())
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.GUDANG, request.getGudangId()));
-        entity.setGradeTelur(request.getGradeTelur());
-        entity.setJumlah(request.getJumlah());
-        entity.setGudang(gudang);
-        return stokTelurMapper.toResponse(stokTelurRepository.save(entity));
+    public void prosesMasuk(Long targetId, BigDecimal jumlah, String keterangan) {
+        StokTelur telur = repository.findById(targetId)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.TELUR, targetId));
+        telur.setJumlah(telur.getJumlah() + jumlah.intValue());
+        repository.save(telur);
     }
 
     @Override
-    public List<StokTelurResponse> findAll() {
-        List<StokTelur> lsEntity = stokTelurRepository.findAll();
-        return stokTelurMapper.toResponse(lsEntity);
-    }
-
-    @Override
-    public StokTelurResponse findById(Long id) {
-        StokTelur entity = stokTelurRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_TELUR, id));
-        return stokTelurMapper.toResponse(entity);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Long id) {
-        StokTelur entity = stokTelurRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_TELUR, id));
-        stokTelurRepository.delete(entity);
+    public void prosesKeluar(Long targetId, BigDecimal jumlah, String keterangan) {
+        StokTelur telur = repository.findById(targetId)
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.TELUR, targetId));
+        if (telur.getJumlah().compareTo(jumlah.intValue()) < 0) {
+            throw new BadRequestException(Constant.STOCK_NOT_ENOUGH_PATTERN, Constant.TELUR);
+        }
+        telur.setJumlah(telur.getJumlah() - jumlah.intValue());
+        repository.save(telur);
     }
 }
