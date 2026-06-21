@@ -23,6 +23,9 @@ public class PenjualanTelur {
     private Pelanggan Pelanggan;
     @Column(name = "tanggal_penjualan")
     private LocalDate tanggalPenjualan;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pesanan_penjualan_id")
+    private PesananPenjualan pesananPenjualan;
     @Column(name = "total_harga")
     private BigDecimal totalHarga;
 }

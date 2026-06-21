@@ -1,4 +1,4 @@
-package com.hindustries.entity.domain.pembelian;
+package com.hindustries.entity.domain.penjualan;
 
 import com.hindustries.entity.domain.penjualan.PesananPenjualan;
 import com.hindustries.util.Constant;

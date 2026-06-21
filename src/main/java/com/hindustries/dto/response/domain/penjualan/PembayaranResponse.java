@@ -1,4 +1,4 @@
-package com.hindustries.dto.response.domain.pembelian;
+package com.hindustries.dto.response.domain.penjualan;
 
 import com.hindustries.entity.domain.penjualan.PesananPenjualan;
 import lombok.Getter;

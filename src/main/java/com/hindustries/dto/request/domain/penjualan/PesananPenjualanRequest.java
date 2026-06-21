@@ -10,5 +10,7 @@ import java.time.LocalDate;
 public class PesananPenjualanRequest {
     private Long pelangganId;
     private LocalDate tanggalPesanan;
+    private Long pesananPenjualanId;
+    private Long gudangId;
     private BigDecimal totalHarga;
 }

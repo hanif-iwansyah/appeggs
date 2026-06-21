@@ -8,15 +8,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class PenjualanTelurResponse {
+    private Long pelangganId;
     private String namaPelanggan;
     private BigDecimal totalHarga;
     private LocalDate tanggalPenjualan;
 }
-//@Getter
-//@Setter
-//public class PenjualanTelurResponse {
-//private Pelanggan pelanggan;
-//    private String namaPelanggan;
-//    private BigDecimal totalHarga;
-//    private LocalDateTime tanggalPenjualan;
-//}

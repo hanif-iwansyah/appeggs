@@ -68,42 +68,4 @@ public class PembelianPakanService {
         return mapper.toResponse(repository.save(pembelian));
     }
 
-
-//    @Override
-//    public PembelianPakanResponse create(PembelianPakanRequest request) {
-//        Pemasok pemasok = pemasokRepository.findById(request.getPemasokId())
-//                .orElseThrow(() -> new ResourceNotFoundException(Constant.PEMASOK, request.getPemasokId()));
-//        PembelianPakan entity = mapper.toEntity(request);
-//        entity.setPemasok(pemasok);
-//        return mapper.toResponse(repository.save(entity));
-//    }
-//
-//    @Override
-//    public PembelianPakanResponse update(Long id, PembelianPakanRequest request) {
-//        PembelianPakan entity = repository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException(Constant.PEMBELIAN_PAKAN, id));
-//        mapper.updateEntityFromRequest(request, entity);
-//        return mapper.toResponse(repository.save(entity));
-//    }
-//
-//    @Override
-//    public List<PembelianPakanResponse> findAll() {
-//        List<PembelianPakan> lsEntity = repository.findAll();
-//        return mapper.toResponse(lsEntity);
-//    }
-//
-//    @Override
-//    public PembelianPakanResponse findById(Long id) {
-//        PembelianPakan entity = repository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException(Constant.PEMBELIAN_PAKAN, id));
-//        return mapper.toResponse(entity);
-//    }
-//
-//    @Override
-//    public void delete(Long id) {
-//        repository.delete(repository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException(Constant.PEMBELIAN_PAKAN, id)));
-//    }
-
-
 }

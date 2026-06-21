@@ -1,4 +1,4 @@
-package com.hindustries.dto.request.domain.pembelian;
+package com.hindustries.dto.request.domain.penjualan;
 
 import lombok.Getter;
 import lombok.Setter;

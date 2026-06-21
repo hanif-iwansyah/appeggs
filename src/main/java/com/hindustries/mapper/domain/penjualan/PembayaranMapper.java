@@ -1,8 +1,8 @@
-package com.hindustries.mapper.domain.pembelian;
+package com.hindustries.mapper.domain.penjualan;
 
-import com.hindustries.dto.request.domain.pembelian.PembayaranRequest;
-import com.hindustries.dto.response.domain.pembelian.PembayaranResponse;
-import com.hindustries.entity.domain.pembelian.Pembayaran;
+import com.hindustries.dto.request.domain.penjualan.PembayaranRequest;
+import com.hindustries.dto.response.domain.penjualan.PembayaranResponse;
+import com.hindustries.entity.domain.penjualan.Pembayaran;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import java.util.List;

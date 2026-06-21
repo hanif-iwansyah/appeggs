@@ -40,6 +40,10 @@ public final class Constant {
     public static final String LAPORAN_HARIAN = "Data laporan harian";
     public static final String LAPORAN_BULANAN = "Data laporan bulanan";
     public static final String PENGAKIRAN_AYAM = "Data pengakiran ayam";
-    public static final String SUCCESS_DELETE = "Succesfully delete data.";
+    public static final String SUCCESS_DELETE = "Succesfully delete data";
+    public static final String TELUR_GRADE  = "Telur grade ";
+    public static final String ONLY_ORDER_CONFIRM_OR_ONPROCESS = "Penjualan hanya bisa dibuat untuk pesanan berstatus DIKONFIRMASI/DALAM_PROSES";
+    public static final String ZERO_STOCK_IN_WAREHOUSE = "belum terdaftar di gudang ini (Stok: 0)";
+
 
 }

@@ -10,6 +10,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface PesananPenjualanMapper {
+    @Mapping(source = "pelanggan.id", target = "pelangganId")
+    @Mapping(source = "pelanggan.namaPelanggan", target = "namaPelanggan")
     PesananPenjualanResponse toResponse(PesananPenjualan entity);
     List<PesananPenjualanResponse> toResponse(List<PesananPenjualan> lsEntity);
     void updateEntityFromRequest(PesananPenjualanRequest request, @MappingTarget PesananPenjualan entity);
