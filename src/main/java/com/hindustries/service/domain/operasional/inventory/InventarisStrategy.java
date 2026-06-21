@@ -1,7 +1,5 @@
 package com.hindustries.service.domain.operasional.inventory;
 
-import org.apache.coyote.BadRequestException;
-
 import java.math.BigDecimal;
 
 public interface InventarisStrategy {

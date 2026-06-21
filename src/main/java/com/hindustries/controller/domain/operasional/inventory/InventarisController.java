@@ -26,7 +26,7 @@ public class InventarisController {
     @PostMapping("/keluar")
     public ResponseEntity<ApiResponse<String>> barangKeluar(@Valid @RequestBody InventarisRequest request) {
         service.kelolaBarangKeluar(request);
-        return ResponseEntity.ok(ApiResponse.success(Constant.STOCK_IN_SUCCESS.apply(request.getKategori())));
+        return ResponseEntity.ok(ApiResponse.success(Constant.STOCK_OUT_SUCCESS.apply(request.getKategori())));
     }
 
 }

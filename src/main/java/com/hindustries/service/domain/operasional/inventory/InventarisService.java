@@ -9,16 +9,19 @@ import java.util.List;
 @Transactional
 public class InventarisService {
     private final List<InventarisStrategy> strategies;
+    private final TransaksiInventarisService transaksiInventarisService;
 
-    public InventarisService(List<InventarisStrategy> strategies) {
+    public InventarisService(List<InventarisStrategy> strategies, TransaksiInventarisService transaksiInventarisService) {
         this.strategies = strategies;
+        this.transaksiInventarisService = transaksiInventarisService;
     }
 
     public void kelolaBarangMasuk(InventarisRequest request) {
         InventarisStrategy strategy = cariStrategy(request.getKategori());
         strategy.prosesMasuk(request.getTargetId(), request.getJumlah(), request.getKeterangan());
-
-    }
+        /*transaksiService.catat(request.getTargetId(), request.getKategori(),
+                JenisTransaksiInventaris.MASUK, request.getJumlah(),
+                request.getKeterangan());   */ }
 
     public void kelolaBarangKeluar(InventarisRequest request) {
         InventarisStrategy strategy = cariStrategy(request.getKategori());

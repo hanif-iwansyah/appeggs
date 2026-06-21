@@ -18,7 +18,6 @@ public class InventarisRequest {
     @Positive(message = "Jumlah harus lebih besar dari nol")
     private BigDecimal jumlah;
     private String keterangan;
-    // Disini kita tambahkan untuk field yang tidak opsional
     private Long gudangId;
     private String gradeTelur;
 }

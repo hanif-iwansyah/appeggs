@@ -13,11 +13,9 @@ import java.math.BigDecimal;
 public class StokObatService implements InventarisStrategy {
 
     private final StokObatRepository repository;
-    private final StokObatMapper mapper;
 
-    public StokObatService(StokObatRepository repository, StokObatMapper mapper) {
+    public StokObatService(StokObatRepository repository) {
         this.repository = repository;
-        this.mapper = mapper;
     }
 
     @Override

@@ -1,16 +1,17 @@
 package com.hindustries.dto.request.domain.operasional.inventory;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class StokTelurRequest {
-    @NotBlank
+    @NotNull
     private String gradeTelur;
-    @NotBlank
+    @Min(1)
     private Integer jumlah;
-    @NotBlank
+    @NotNull
     private Long gudangId;
 }

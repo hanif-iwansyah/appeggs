@@ -2,7 +2,6 @@ package com.hindustries.service.domain.operasional.inventory;
 
 import com.hindustries.dto.response.domain.operasional.inventory.StokPakanAlertResponse;
 import com.hindustries.entity.domain.operasional.inventory.StokPakan;
-import com.hindustries.mapper.domain.operasional.inventory.StokPakanMapper;
 import com.hindustries.repository.domain.operasional.inventory.StokPakanRepository;
 import com.hindustries.util.BadRequestException;
 import com.hindustries.util.Constant;
@@ -18,7 +17,7 @@ public class StokPakanService implements InventarisStrategy {
 
     private final StokPakanRepository repository;
 
-    public StokPakanService(StokPakanRepository repository, StokPakanMapper mapper) {
+    public StokPakanService(StokPakanRepository repository) {
         this.repository = repository;
     }
 
@@ -32,8 +31,8 @@ public class StokPakanService implements InventarisStrategy {
                     alert.setId(stokPakan.getId());
                     alert.setNamaPakan(stokPakan.getJenisPakan().getNamaPakan());
                     alert.setNamaGudang(stokPakan.getGudang().getNamaGudang());
-                    alert.setJumlahKg(stokPakan.getStokMinimumKg());
-                    alert.setStokMinimumKg(stokPakan.getStokMinimumKg().subtract(stokPakan.getJumlahKg()));
+                    alert.setStokMinimumKg(stokPakan.getStokMinimumKg());
+                    alert.setSelisihKg(stokPakan.getStokMinimumKg().subtract(stokPakan.getJumlahKg()));
                     return alert;
                 }).toList();
     }
@@ -55,7 +54,7 @@ public class StokPakanService implements InventarisStrategy {
     @Override
     public void prosesKeluar(Long targetId, BigDecimal jumlah, String keterangan) {
         StokPakan pakan = repository.findById(targetId)
-                .orElseThrow(() -> new ResourceNotFoundException(Constant.PAKAN, targetId));
+                .orElseThrow(() -> new ResourceNotFoundException(Constant.STOK_PAKAN, targetId));
         if (pakan.getJumlahKg().compareTo(jumlah) < 0) {
             throw new BadRequestException(Constant.STOCK_NOT_ENOUGH_PATTERN, Constant.PAKAN);
         }
